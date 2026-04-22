@@ -1,0 +1,97 @@
+<section id="faq" style="
+    padding: 80px 5%;
+    color: white;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    position: relative;
+    background: #121212 url(услуги.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
+
+    <div style="
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05); /* Лека прозрачност */
+        backdrop-filter: blur(1px); /* Замъгляване на фона */
+        -webkit-backdrop-filter: blur(1px);
+
+        padding: 40px;
+        border-radius: 24px;
+        border: 1px solid #e31e24; 
+
+    /* 2. СВЕТЕЩ ЕФЕКТ (GLOW) */
+    /* Първата сянка е за дълбочина, втората (червената) е за сиянието */
+    box-shadow: 0 0 15px rgba(227, 30, 36, 0.4), 
+                0 0 30px rgba(227, 30, 36, 0.2);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    ">
+        
+        <h2 style="text-align: center; text-transform: uppercase; margin-bottom: 40px; font-weight: 900; font-size: 2rem; letter-spacing: 1px;">
+            Често задавани <span style="color: #e31e24;">Въпроси</span>
+        </h2>
+
+        <div id="faq-list">
+            </div>
+    </div>
+
+    <script>
+        const faqItems = [
+            { q: "1. Мога ли да тренирам, ако имам дископатия?", a: "Абсолютно. Самият аз живея с дископатия. Фокусираме се върху укрепване на ядрото и правилна техника, за да стабилизираме гръбнака." },
+            { q: "2. Кога мога да започна след операция?", a: "След лекарско разрешение. Постепенното и внимателно движение е от решаващо значение за успешното възстановяване." },
+            { q: "3. Какво е функционален фитнес?", a: "Упражнения, имитиращи реални движения. Целта е да бъдем силни и мобилни в ежедневието." },
+            { q: "4. Трябва ли да ходя в зала?", a: "Не. Постигаме резултати и от вкъщи със собствено тегло или минимално оборудване." },
+            { q: "5. Подходящо ли е за начинаещи?", a: "Да. Започваме от основите и чистата техника, за да изградим стабилна база без контузии." }
+        ];
+
+        const faqList = document.getElementById('faq-list');
+
+        faqItems.forEach((item, i) => {
+            const itemDiv = document.createElement('div');
+            itemDiv.style.marginBottom = "15px";
+            itemDiv.style.borderRadius = "12px";
+            itemDiv.style.background = "rgba(0,0,0,0.3)";
+            itemDiv.style.border = "1px solid rgba(255,255,255,0.05)";
+            itemDiv.style.overflow = "hidden";
+
+            itemDiv.innerHTML = `
+                <div onclick="handleToggle(${i})" style="padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s;">
+                    <span style="font-weight: 600; font-size: 1.05rem; color: #e31e24;">${item.q}</span>
+                    <span id="icon-${i}" style="color: #e31e24; font-size: 1.4rem; font-weight: bold;">+</span>
+                </div>
+                <div id="content-${i}" style="max-height: 0; overflow: hidden; transition: all 0.4s ease-in-out; background: rgba(0,0,0,0.2);">
+                    <p style="padding: 20px; color: #bbb; line-height: 1.6; margin: 0;">${item.a}</p>
+                </div>
+            `;
+            faqList.appendChild(itemDiv);
+        });
+
+        function handleToggle(i) {
+            const content = document.getElementById(`content-${i}`);
+            const icon = document.getElementById(`icon-${i}`);
+            
+            // Затваряне на другите (опционално)
+            document.querySelectorAll('[id^="content-"]').forEach((el, idx) => {
+                if(idx !== i) {
+                    el.style.maxHeight = "0";
+                    document.getElementById(`icon-${idx}`).innerText = "+";
+                }
+            });
+
+            if (content.style.maxHeight === "0px" || !content.style.maxHeight) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.innerText = "−";
+            } else {
+                content.style.maxHeight = "0";
+                icon.innerText = "+";
+            }
+        }
+    </script>
+
+    <a href="index.html" style="position: fixed; bottom: 25px; right: 25px; padding: 10px 20px; color: white; text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; z-index: 10000; font-size: 13px; transition: 0.3s;" onmouseover="this.style.background='rgba(227,30,36,0.6)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'"><</a>
+</section>

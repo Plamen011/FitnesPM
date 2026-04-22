@@ -1,0 +1,109 @@
+<section id="contact" style="
+    padding: 100px 5%; 
+    color: white; 
+    font-family: 'Segoe UI', sans-serif;
+    position: relative; 
+    background-image: url('услуги.jpg'); /* Увери се, че файлът е в същата папка */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Паралакс ефект */
+">
+    <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+overflow: hidden; /* ПРЕМАХВА СКРОЛА */
+    display: flex; /* Центрира кутията */
+        background: rgba(0, 0, 0, 0.1); /* Затъмняване 70% */
+        z-index: 1;
+    "></div>
+
+
+    <div style="
+        position: relative; 
+        z-index: 2; /* Изкарва съдържанието над черния слой */
+        max-width: 1100px; 
+        margin: 0 auto; 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        gap: 50px; 
+        background: rgba(26, 26, 26, 0.9); /* Леко прозрачен фон за модерен ефект */
+        backdrop-filter: blur(8px); /* Замъгляване под кутията */
+        padding: 10px; 
+        border-radius: 20px; 
+        border: 1px solid #e31e24; box-shadow: 0 0 20px rgba(227, 30, 36, 0.5);
+    ">
+
+        <div>
+            <h2 style="font-size: 2.5rem; text-transform: uppercase; font-weight: 900; margin-bottom: 20px;">
+                Свържи се с <span style="color: #e31e24;">Мен</span>
+            </h2>
+            <p style="color: #aaa; margin-bottom: 30px;">Имаш въпроси или искаш да запазиш час за консултация? Изпрати ми съобщение.</p>
+            
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" placeholder="Твоето име" style="width: 100%; padding: 15px; background: #252525; border: 1px solid #333; border-radius: 8px; color: white; outline: none;">
+                <input type="email" placeholder="Твоят имейл" style="width: 100%; padding: 15px; background: #252525; border: 1px solid #333; border-radius: 8px; color: white; outline: none;">
+                <textarea rows="5" placeholder="Твоето съобщение..." style="width: 100%; padding: 15px; background: #252525; border: 1px solid #333; border-radius: 8px; color: white; outline: none; resize: none;"></textarea>
+                <button type="submit" style="background: #e31e24; color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s;">Изпрати запитване</button>
+            </form>
+        </div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 30px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="width: 50px; height: 50px; background: rgba(227, 30, 36, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e31e24; font-size: 1.2rem;">📍</div>
+                <div>
+                    <h4 style="font-size: 0.8rem; color: #666; text-transform: uppercase;">Локация</h4>
+                    <p style="font-weight: bold;">гр. София, България</p>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="width: 50px; height: 50px; background: rgba(227, 30, 36, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e31e24; font-size: 1.2rem;">📞</div>
+                <div>
+                    <h4 style="font-size: 0.8rem; color: #666; text-transform: uppercase;">Телефон</h4>
+                    <p style="font-weight: bold;">+359 888 000 000</p>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="width: 50px; height: 50px; background: rgba(227, 30, 36, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e31e24; font-size: 1.2rem;">📧</div>
+                <div>
+                    <h4 style="font-size: 0.8rem; color: #666; text-transform: uppercase;">Имейл</h4>
+                    <p style="font-weight: bold;">info@manolovfit.com</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <img src="лого1.png" alt="Manolov Fit" style="height: 50px;">
+            </div>
+        </div>
+    </div>
+<a href="index.html" 
+       style="
+        position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        padding: 10px 25px; 
+        color: white; 
+        text-decoration: none; 
+        font-weight: bold; 
+        text-transform: uppercase; 
+        font-size: 14px; 
+        letter-spacing: 1px; 
+        background: rgba(255, 255, 255, 0.1); 
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(10px); 
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+        border-radius: 4px; 
+        transition: all 0.3s ease; 
+        z-index: 10000;
+        cursor: pointer;"
+       onmouseover="this.style.background='rgba(227, 30, 36, 0.4)'; this.style.borderColor='#e31e24'; this.style.transform='translateY(-5px)';" 
+       onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)';"
+    >
+        <
+    </a>
+    </section>
+</section>

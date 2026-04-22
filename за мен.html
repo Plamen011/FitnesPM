@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manolov Fit - За Мен</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .about-section {
+            width: 100%;
+            min-height: 100vh; 
+            background: #1a1a1a url('za men.jpg') no-repeat center top;
+            background-size: 100% auto; 
+            display: flex;
+            align-items: center;
+            padding: 50px 5%;
+        }
+
+        .about-card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            max-width: 900px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+border: 1px solid #e31e24; 
+
+    /* 2. СВЕТЕЩ ЕФЕКТ (GLOW) */
+    /* Първата сянка е за дълбочина, втората (червената) е за сиянието */
+    box-shadow: 0 0 15px rgba(227, 30, 36, 0.4), 
+                0 0 30px rgba(227, 30, 36, 0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+position: relative; /* Това казва на бутона: ориентирай се по мен */
+        }
+
+        /* КОРИГИРАНОТО ЛОГО */
+        .logo-box {
+            margin-bottom: 10px;
+
+        }
+
+.logo-box img {
+    height: 80px; /* Тук промени цифрата, докато ти хареса размера */
+    width: auto;  /* Запазва пропорциите */
+    filter: drop-shadow(0px 0px 8px rgba(255,255,255,0.3));
+}
+       
+        .about-card h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 25px;
+            font-weight: 850;
+            text-transform: uppercase;
+        }
+
+        .about-card p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: #e31e24; 
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            color: white;
+            font-size: 0.85rem;
+            text-transform: lowercase;
+        }
+.btn-back {
+    position: fixed; /* Използваме fixed, за да стои винаги там спрямо екрана */
+    bottom: 10px;    /* Нагоре от долния ръб */
+    right: 30px;     /* Наляво от десния ръб - точно при ръката */
+    padding: 10px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    
+    /* СТЪКЛОВИДЕН ЕФЕКТ (Замъглен) */
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    z-index: 9999; /* Да е над всичко */
+    cursor: pointer;
+}
+
+/* ИНТЕРАКТИВНОСТ */
+.btn-back:hover {
+    background: rgba(227, 30, 36, 0.4); /* Твоето червено, но прозрачно */
+    border-color: #e31e24;
+    transform: translateY(-5px); /* Вдига се леко нагоре */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+        @media (max-width: 768px) {
+            .about-section { background-size: cover; }
+            .about-card { padding: 30px; text-align: center; }
+            .stats-container { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="about-section">
+        <div class="about-card">
+            <div class="logo-box">
+                <img src="лого1.png" alt="Manolov Fit Logo">
+            </div>
+            
+            <h2>ЗА <span style="color: #e31e24;">МЕН</span></h2>
+            
+            <p>Над 10 години опит по пътя към по-добрата форма..</p>
+            
+            <p>Спортът е част от живота ми още от дете – от първите стъпки край тежестите на баща ми до годините, прекарани в залата по карате. Днес имам над 10-годишен стаж във фитнеса, преминавайки през сериозни здравословни предизвикателства, като дископатия и възстановяване от херния.
+
+Вярвам, че движението е най-доброто лекарство. Благодарение на правилните упражнения и постоянството, успях да преодолея болката и продължих да тренирам. Като сертифициран помощник-инструктор по функционален фитнес, моята мисия е да споделя този опит и да помагам на хората да постигнат своята желана промяна по безопасен и ефективен начин.</p>
+            
+            <p>Моите специализации:
+
+·         Функционални тренировки: Изграждане на силно и атлетично тяло, готово за ежедневни натоварвания.
+
+·         Тренировки при дископатия и болки в гърба: Корекция на стойката и укрепване на мускулния корсет (core) чрез специфични упражнения.
+
+·         Спортно възстановяване: Тренировъчни планове за хора, преминали през контузии или операции (базирано на личен опит).
+
+·         Трансформация и отслабване: Индивидуален подход към хора, търсещи цялостна промяна.</p>
+
+            <div class="stats-container">
+                <div class="stat-box">
+
+         <a href="index.html" class="btn-back"><</a>                           <div class="stat-box">
+                                    </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

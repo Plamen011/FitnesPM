@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - Manolov Fit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+            /* ФОНОВО ИЗОБРАЖЕНИЕ */
+            background-image: url('услуги.jpg'); 
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-color: #121212; 
+        }
+
+        .services-section {
+            padding: 100px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-image: url('услуги.jpg'); 
+            background-position: center; 
+            background-size: cover; 
+            background-attachment: fixed; 
+            background-color: #121212; 
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); /* Нагласи за по-тъмно или по-светло */
+            z-index: 1;
+        }
+
+        .services-section h2,
+        .services-grid {
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-section h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .services-section h2 span {
+            color: #e31e24;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(30, 30, 30, 0.9); 
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(0.2px); 
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #e31e24;
+            box-shadow: 0 10px 30px rgba(227, 30, 36, 0.3);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #e31e24;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .service-card p {
+            color: #ccc; 
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .service-link {
+            margin-top: auto;
+            color: #e31e24;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer; /* Важно, за да показва, че може да се цъка */
+        }
+
+        /* --- СТИЛ ЗА МОДАЛНИЯ ПРОЗОРЕЦ (ИНФОТО) --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(0.4px); /* Силно замъгляване на фона */
+            -webkit-backdrop-filter: blur(0.4px);
+            justify-content: center;
+            align-items: center;
+        }
+
+.btn-back {
+    position: fixed; /* Използваме fixed, за да стои винаги там спрямо екрана */
+    bottom: 10px;    /* Нагоре от долния ръб */
+    right: 30px;     /* Наляво от десния ръб - точно при ръката */
+    padding: 10px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    
+    /* СТЪКЛОВИДЕН ЕФЕКТ (Замъглен) */
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    z-index: 9999; /* Да е над всичко */
+    cursor: pointer;
+}
+
+/* ИНТЕРАКТИВНОСТ */
+.btn-back:hover {
+    background: rgba(227, 30, 36, 0.4); /* Твоето червено, но прозрачно */
+    border-color: #e31e24;
+    transform: translateY(-5px); /* Вдига се леко нагоре */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+
+        .modal-content {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            border: 1px solid #e31e24;
+            text-align: left;
+text-align: justify;
+            animation: modalFade 0.3s ease;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .close-modal:hover { color: #e31e24; }
+
+        #modalTitle {
+            color: #e31e24;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        #modalBody {
+            line-height: 1.8;
+            color: #ddd;
+            white-space: pre-line; /* Запазва новите редове */
+        }
+
+        @media (max-width: 768px) {
+            .services-section h2 { font-size: 2.2rem; }
+            .services-section { background-attachment: scroll; }
+        }
+/* Стил за червения бутон в модала */
+.btn-book-session {
+    display: inline-block;
+    background-color: #e31e24; /* Твоето червено */
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 2px solid #e31e24;
+    letter-spacing: 1px;
+    margin-top: 30px; /* Разстояние от текста нагоре */
+    cursor: pointer;
+}
+
+.btn-book-session:hover {
+    background-color: transparent;
+    color: #e31e24;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(227, 30, 36, 0.4);
+}
+
+/* Центриране на бутона */
+.modal-footer {
+    text-align: center;
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+
+    <section class="services-section">
+        <h2>Моите <span>Услуги</span></h2>
+     <a href="index.html" class="btn-back"><</a>    
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💪</div>
+                <h3>Персонални тренировки и планове</h3>
+                <p>Индивидуален подход, съобразен с твоите цели и физическо състояние.</p>
+                
+                <div class="hidden-info" style="display:none;">
+    Това не е просто тренировка, а стратегически процес за пълна трансформация на вашето тяло и способности. Всеки план се изготвя след детайлен анализ на текущото Ви състояние, мобилност и цели, независимо дали искате да изградите чиста мускулна маса или да свалите мазнини.
+
+    Моят подход е насочен към функционалността – да бъдете не само визуално по-добре, но и физически по-силни в ежедневието си. Използваме научно доказани методи за прогресивно натоварване, които гарантират постоянен напредък без риск от претоварване.
+
+    Тренировките са адаптирани към графика Ви, осигурявайки максимална ефективност за минимално време. Ще научите правилната техника на всяко движение, което е основата на дългосрочните резултати. Заедно ще градим дисциплина и навици, които ще Ви мотивират да надминавате себе си всяка седмица. 
+
+    Крайната цел е атлетично, симетрично и функционално тяло, на което можете да разчитате.
+</div>
+                
+                <span class="service-link" onclick="openModal(this)">Научи повече ></span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🦴</div>
+                <h3>Възстановяване и превенция</h3>
+                <p>Възстановяване след операции, дискови хернии и хронични болки.</p>
+                
+                <div class="hidden-info" style="display:none;">
+    Истинските резултати не се случват по време на тренировката, а в часовете след нея, когато тялото се възстановява. Като човек, преминал през дископатия и сериозни физически предизвикателства, разбирам колко е критично здравето на ставите и гръбнака.
+
+    Тази услуга е фокусирана върху правилното разтягане, мобилността и техниките за освобождаване на напрежението в мускулите. Ще интегрираме специфични упражнения, които коригират стойката и укрепват стабилизиращите мускули (кора). Превенцията на контузии е водещ приоритет, защото само здравото тяло може да прогресира устойчиво във времето.
+
+    Ще Ви науча как да слушате сигналите на вашето тяло и как да оптимизирате почивката за максимална енергия. Качественото възстановяване подобрява не само физическото състояние, но и нервната система, намалявайки стреса. Този баланс позволява да тренирате дългогодишно, без хронични болки и дискомфорт.
+
+    Инвестицията в мобилност днес е гаранция за активен живот и здраве в дългосрочен план.
+</div>
+                
+                <span class="service-link" onclick="openModal(this)">Научи повече ></span>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🥗</div>
+                <h3>Хранителни навици и хранене</h3>
+                <p>Персонализиран план за хранене, който да подкрепи твоя процес.</p>
+                
+                <div class="hidden-info" style="display:none;">
+    Храненето е горивото за вашите резултати и ключът към промяната в телесната композиция. Моята цел не е да Ви поставя на строга и непосилна диета, а да изградим устойчиви хранителни навици, които работят за вас.
+
+    Ще разработим индивидуален подход към калорийния прием и макронутриентите, съобразен с вашия метаболизъм и интензивност на тренировките. Фокусираме се върху качеството на храната, за да подпомогнем изграждането на мускули и изгарянето на мазнини по естествен начин. Ще научите как да съчетавате любимите си храни с вашите фитнес цели, без да се чувствате лишени или демотивирани.
+
+    Правилното хранене ще повиши нивата Ви на енергия през целия ден и ще ускори процеса на възстановяване. Ще получите практически съвети за пазаруване, приготвяне на храна и справяне с емоционалното хранене. 
+
+    Храната е инструмент, с който можем да манипулираме хормоналната среда в тялото за оптимално здраве. С правилен план и подкрепа, постигането на мечтаната форма става предвидим и логичен резултат.
+</div>
+
+        
+                <span class="service-link" onclick="openModal(this)">Научи повече ></span>
+            </div>
+        </div>
+    </section>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalBody"></div>
+<div class="modal-footer">
+<a href="контакти.html" class="btn-book-session">ЗАПАЗИ ЧАС</a>
+                    </div>
+
+        </div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            const card = element.parentElement;
+            const title = card.querySelector('h3').innerText;
+            const info = card.querySelector('.hidden-info').innerText;
+
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = info;
+            document.getElementById('infoModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Спира скрола на фона
+        }
+
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Връща скрола
+        }
+
+        // Затваряне при клик извън прозореца
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+
+</body>
+</html>
