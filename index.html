@@ -6,6 +6,30 @@
     <title>Functional Fitness - Персонални тренировки</title>
     <style>
         /* Общи стилове */
+        <nav class="navbar">
+    <div class="logo">MANOLOV<span>FIT</span></div>
+    
+    <div class="burger-menu" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="#home">НАЧАЛО</a></li>
+        <li><a href="#za-men">ЗА МЕН</a></li>
+        <li><a href="#uslugi">УСЛУГИ</a></li>
+        <li><a href="#kontakt">КОНТАКТ</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>Твоят Фитнес Път</h1>
+        <p>Възстановяване и функционални тренировки.</p>
+        <a href="#" class="btn-red">Запази безплатна консултация ></a>
+    </div>
+</section>
         body, html {
             margin: 0;
             padding: 0;
@@ -195,30 +219,75 @@ nav { flex: 2; display: flex; justify-content: center; }
 }
 @media screen and (max-width: 768px) { .container { width: 100%; padding: 0 15px; /* Дава малко разстояние от краищата на екрана */ }
 h1 { font-size: 6vw; /* vw означава viewport width - текстът ще се свива и разширява спрямо екрана */ }
-.photo-gallery { display: flex; flex-direction: column; /* Снимките се подреждат вертикално, за да не се застъпват */ } }  
-        /* Код за хоризонтален режим на телефони (Landscape) */
-@media screen and (max-width: 932px) and (orientation: landscape) {
-    .your-section-class {
-        min-height: auto; /* Позволява на секцията да се разпъне според текста */
-        padding: 50px 5%;
-        background-attachment: scroll; /* Паралаксът често бъгва на мобилни браузъри */
-    }
+.photo-gallery { display: flex; flex-direction: column; .burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
 
-    h1 {
-        font-size: 5vw; /* Малко по-малък текст, за да не заема целия екран */
-    }
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
 
-    .container {
-        display: flex;
-        flex-direction: row; /* Можеш да сложиш текста вляво, а снимката вдясно */
-        align-items: center;
-        gap: 20px;
-    }
+/* --- ТУК ЗАПОЧВА КОДЪТ ЗА ВЕРТИКАЛЕН ТЕЛЕФОН --- */
+@media screen and (max-width: 768px) {
     
-    /* Ако снимката на човека е отделен елемент (img), намали размера ѝ */
-    .hero-image {
-        max-width: 40%;
-        height: auto;
+    /* 1. Намаляваме заглавието */
+    h1 {
+        font-size: 28px !important;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    /* 2. Намаляваме червения бутон */
+    .btn-red {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        display: inline-block;
+        width: auto !important; /* Да не е на целия екран */
+        border-radius: 5px;
+    }
+
+    /* 3. Логика за падащото меню */
+    .burger-menu {
+        display: flex; /* Показваме трите черти */
+    }
+
+    .nav-links {
+        display: none; /* Скриваме линковете */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Веднага под навигацията */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        padding: 20px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* Класът, който се активира от JavaScript */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Контейнер и галерия */
+    .container {
+        padding: 0 20px;
+    }
+
+    .photo-gallery {
+        flex-direction: column;
+        gap: 20px;
     }
 }
         /* ВИДЕО КОНТЕЙНЕР (Над кривата) */
@@ -284,7 +353,25 @@ h1 { font-size: 6vw; /* vw означава viewport width - текстът ще
     </style>
 </head>
 <body>
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
 
+    mobileMenu.addEventListener('click', () => {
+        // Превключва класа 'active', който показва/скрива менюто
+        navList.classList.toggle('active');
+        
+        // Малка анимация на трите черти (опционално)
+        mobileMenu.classList.toggle('toggle');
+    });
+
+    // Затваряне на менюто при клик върху линк
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navList.classList.remove('active');
+        });
+    });
+</script>
     <div class="hero-wrapper">
         <header>
             <div class="logo">
