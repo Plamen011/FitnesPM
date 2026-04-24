@@ -252,10 +252,57 @@ nav { flex: 2; display: flex; justify-content: center; }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 900px) {
-            .hero-text h1 { font-size: 2.2rem; }
-            .video-overlay-container { justify-content: center; }
+       /* ======================================================
+   САМОСТОЯТЕЛЕН КОД ЗА МОБИЛНА ВЕРСИЯ (ДОБАВИ ОТДОЛУ)
+   ====================================================== */
+
+@media screen and (max-width: 768px) {
+    /* 1. НАСТРОЙКИ ЗА ЗАГЛАВИЕТО НА ТЕЛЕФОН */
+    .hero-text h1 {
+        font-size: 1.8rem !important; /* Намалява размера на заглавието */
+        text-align: center; /* Центрира заглавието */
+        line-height: 1.3 !important;
+    }
+
+    .hero-text p {
+        font-size: 1rem !important;
+        text-align: center;
+    }
+
+    /* 2. НАСТРОЙКИ ЗА ВИДЕАТА (9:16, ЕДНО ДО ДРУГО, ЗАОБЛЕНИ) */
+    .video-overlay-container {
+        display: flex !important;
+        flex-direction: row !important; /* Подрежда ги хоризонтално (едно до друго) */
+        justify-content: center !important; /* Центрира цялата секция */
+        gap: 15px !important; /* Разстояние между двете видеа */
+        padding-left: 0 !important; /* Премахва отстъпа, ако има такъв */
+        margin-top: 20px !important; /* Отстъп от горния елемент */
+    }
+
+    .small-shorts {
+        width: 45% !important; /* Всяко видео заема почти половината от ширината */
+        max-width: 160px; /* Ограничава максималната ширина */
+        border-radius: 12px !important; /* Заоблени рамки */
+        overflow: hidden !important; /* Важно, за да работят заоблените рамки */
+        margin: 0 !important; /* Премахва страничните отстъпи */
+        transform: none !important; /* Премахва наклона (rotate), ако има такъв */
+    }
+
+    /* Настройка за 9:16 формат на самите видео рамки */
+    .small-shorts .video-wrapper {
+        padding-bottom: 177.77% !important; /* Този процент определя формата 9:16 */
+    }
+
+    /* 3. НАСТРОЙКИ ЗА ХОРИЗОНТАЛЕН ЕКРАН (LANDSCAPE) */
+    @media screen and (orientation: landscape) {
+        .hero-wrapper {
+            min-height: 120vh !important; /* Позволява скролване в легнало положение */
         }
+        .video-overlay-container {
+            padding-bottom: 50px !important; /* Допълнителен отстъп най-отдолу */
+        }
+    }
+}
     </style>
 </head>
 <body>
