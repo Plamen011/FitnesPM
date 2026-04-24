@@ -193,9 +193,9 @@ nav { flex: 2; display: flex; justify-content: center; }
     transform: translateY(-2px) scale(0.98);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
-
-
-
+@media screen and (max-width: 768px) { .container { width: 100%; padding: 0 15px; /* Дава малко разстояние от краищата на екрана */ }
+h1 { font-size: 6vw; /* vw означава viewport width - текстът ще се свива и разширява спрямо екрана */ }
+.photo-gallery { display: flex; flex-direction: column; /* Снимките се подреждат вертикално, за да не се застъпват */ } }  
         /* ВИДЕО КОНТЕЙНЕР (Над кривата) */
         .video-overlay-container {
             display: flex;
