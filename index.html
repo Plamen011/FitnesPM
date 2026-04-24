@@ -161,20 +161,28 @@
         align-self: flex-start !important;
     }
 
+   @media screen and (max-width: 930px) and (orientation: landscape) {
     .video-overlay-container {
         position: absolute !important;
-        top: 80% !important; 
-        left: 70% !important; 
+        /* Намаляваме top, за да се появят в екрана */
+        top: 60% !important;  /* Ако пак ги няма, сложи 50% */
+        left: 55% !important; /* Центрира ги малко по-надясно */
+        
+        right: auto !important;
         bottom: auto !important;
-        right: auto !important; 
         display: flex !important;
         flex-direction: row !important;
-        gap: 12px !important;
-        z-index: 10;
+        gap: 15px !important;
+        z-index: 9999 !important; /* Уверяваме се, че са най-отгоре */
+        transform: translateY(-50%) !important; /* Центрира ги спрямо техния център */
     }
 
-    .small-shorts { width: 100px !important; margin: 0 !important; }
-} /* КРАЙ НА LANDSCAPE */
+    .small-shorts {
+        width: 100px !important; 
+        height: auto !important;
+        display: block !important;
+    }
+}
     </style>
 </head>
 <body>
