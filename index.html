@@ -5,314 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Functional Fitness - Персонални тренировки</title>
     <style>
-        /* Общи стилове */
+        /* --- ОБЩИ СТИЛОВЕ --- */
         body, html {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #000;
-            color: white;
+            background-color: #000; color: white;
             overflow-x: hidden;
         }
 
-        /* Основен контейнер с фоновото изображение */
         .hero-wrapper {
             position: relative;
-            width: 100%;
-            min-height: 100vh;
+            width: 100%; min-height: 100vh;
             background: url('back.jpg') no-repeat center top;
             background-size: cover;
         }
 
-        /* Навигация */
+        /* --- НАВИГАЦИЯ --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(0, 0, 0, 0.2);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: rgba(0, 0, 0, 0.2);
+            position: relative; z-index: 1000;
         }
 
+        .logo { flex: 1; }
         .logo img { height: 50px; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
+        nav { flex: 2; display: flex; justify-content: center; }
+        nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
 
         nav ul li a {
-            text-decoration: none;
-            color: white;
-            position: relative;
-            padding-bottom: 5px;
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
+            text-decoration: none; color: white; position: relative;
+            padding-bottom: 5px; font-weight: bold; font-size: 14px;
+            text-transform: uppercase; transition: color 0.3s ease;
         }
 
         nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #e31e24;
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: 0; left: 0; background-color: #e31e24;
             transition: width 0.3s ease;
         }
-
         nav ul li a:hover { color: #e31e24; }
         nav ul li a:hover::after { width: 100%; }
 
-        /* Главен текст (Hero Section) */
-        .hero-text {
-            padding: 60px 5% 20px 5%;
-            max-width: 800px;
+        /* --- СОЦИАЛНИ МРЕЖИ --- */
+        .header-socials { display: flex; gap: 15px; align-items: center; justify-content: flex-end; flex: 1; }
+        .social-img-btn { transition: transform 0.3s ease-out; cursor: pointer; line-height: 0; }
+        .social-img-btn img {
+            filter: brightness(0) invert(1); width: 28px; height: 28px;
+            object-fit: contain; border-radius: 5px;
         }
+        .social-img-btn:hover { transform: translateY(-5px) scale(1.1); }
 
-        .quote-slider {
-            min-height: 180px;
-            display: flex;
-            align-items: center;
+        /* --- ХАМБУРГЕР МЕНЮ --- */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
         }
+        .hamburger span { width: 30px; height: 3px; background-color: white; transition: 0.3s; }
 
-        .quote {
-            display: none;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
+        /* --- HERO TEXT --- */
+        .hero-text { padding: 60px 5% 20px 5%; max-width: 800px; }
+        .quote-slider { min-height: 180px; display: flex; align-items: center; }
+        .quote { display: none; animation: fadeIn 0.8s ease-in-out; }
         .quote.active { display: block; }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            line-height: 1.2;
-            margin: 0;
-        }
-
-        .underline-red {
-            position: relative;
-            white-space: nowrap;
-        }
-
+        .hero-text h1 { font-size: 3rem; font-weight: 900; line-height: 1.2; margin: 0; }
+        .underline-red { position: relative; white-space: nowrap; }
         .underline-red::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 4px;
-            background-color: #e31e24;
+            content: ''; position: absolute; left: 0; bottom: -5px;
+            width: 100%; height: 4px; background-color: #e31e24;
         }
+        .hero-text p { font-size: 1.2rem; color: #ccc; margin: 20px 0 30px 0; }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin: 20px 0 30px 0;
+        .cta-btn {
+            background-color: #e31e24; color: white; padding: 15px 35px;
+            text-decoration: none; font-weight: bold; border-radius: 5px;
+            display: inline-block; transition: all 0.3s ease-out;
+            position: relative; z-index: 999; cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-/* Контейнерът вдясно */
-/* Контейнерът вдясно */
-.header-socials {
-    display: flex !important;
-    gap: 15px !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-}
+        .cta-btn:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 15px 25px rgba(227, 30, 36, 0.5); background-color: #ff2229; }
 
-/* Стил на самите линкове (бутони) */
-.social-img-btn {
-    display: inline-block !important;
-    text-decoration: none !important;
-    transition: transform 0.3s ease-out !important; /* Важно за интерактивността */
-    cursor: pointer !important;
-    line-height: 0 !important; /* Премахва излишни разстояния под картинката */
-}
-
-/* КОНТРОЛ НА РАЗМЕРА - ТУК ГИ ПРАВИМ МАЛКИ */
-.social-img-btn img {
-filter: brightness(0) invert(1) !important;
-    width: 28px !important;  /* Промени това число, ако ги искаш още по-малки */
-    height: 28px !important;
-    object-fit: contain !important;
-    display: block !important;
-    border-radius: 5px; /* Малко заобляне за по-модерен вид */
-}
-
-/* ИНТЕРАКТИВНОСТ - ЕФЕКТ ПРИ ПОСОЧВАНЕ */
-.social-img-btn:hover {
-    transform: translateY(-5px) scale(1.1) !important; /* Вдигане нагоре и леко уголемяване */
-}
-
-/* Опционално: Сияние при посочване */
-.social-img-btn:hover img {
-    box-shadow: 0 5px 15px rgba(227, 30, 36, 0.4);
-}
-/* Запазваме подредбата на хедъра */
-.logo { flex: 1; }
-nav { flex: 2; display: flex; justify-content: center; }
-
-     .cta-btn {
-    background-color: #e31e24;
-    color: white;
-    padding: 15px 35px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    display: inline-block;
-    
-    /* 1. ПЛАВНОСТ: Това прави движението мазно, а не рязко */
-    transition: all 0.3s ease-out; 
-    
-    /* 2. СЛОЙ: Уверяваме се, че бутонът е над видеата и реагира на мишката */
-    position: relative;
-    z-index: 999; 
-    cursor: pointer;
-    
-    /* Начална сянка */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* ЕФЕКТЪТ ПРИ ПОСОЧВАНЕ С МИШКАТА */
-.cta-btn:hover {
-    /* Вдига се с 8 пиксела нагоре и се уголемява съвсем малко */
-    transform: translateY(-8px) scale(1.05);
-    
-    /* Сянката става по-голяма, за да изглежда, че е по-високо */
-    box-shadow: 0 15px 25px rgba(227, 30, 36, 0.5);
-    
-    /* Цвят: става малко по-светло червено */
-    background-color: #ff2229;
-}
-
-/* ЕФЕКТ ПРИ НАТИСКАНЕ (КЛИК) */
-.cta-btn:active {
-    transform: translateY(-2px) scale(0.98);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-
-
-        /* ВИДЕО КОНТЕЙНЕР (Над кривата) */
-        .video-overlay-container {
-            display: flex;
-            gap: 30px;
-            margin-top: -110px; /* Вдига видеата нагоре (променяй това число, докато ти хареса) */
-    padding-left: 30%;
-            position: relative;
-            z-index: 10;
-        }
-
+        /* --- ВИДЕА --- */
+        .video-overlay-container { display: flex; gap: 30px; margin-top: -110px; padding-left: 30%; position: relative; z-index: 10; }
         .small-shorts {
-            width: 140px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.1);
-            transform: rotate(-2deg);
-            transition: all 0.3s ease;
-            background: #000;
+            width: 140px; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);
+            transform: rotate(-2deg); transition: all 0.3s ease; background: #000;
         }
+        .small-shorts:hover { transform: rotate(0deg) scale(1.1); border-color: #e31e24; }
+        .video-wrapper { position: relative; padding-bottom: 177.77%; height: 0; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-label { display: block; background: rgba(0,0,0,0.8); color: white; font-size: 0.7rem; text-align: center; padding: 8px 5px; font-weight: bold; text-transform: uppercase; }
 
-        .small-shorts:hover {
-            transform: rotate(0deg) scale(1.1);
-            border-color: #e31e24;
-            z-index: 10;
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- МОБИЛНИ КОРЕКЦИИ --- */
+        @media screen and (max-width: 768px) {
+            .hamburger { display: flex; }
+            nav {
+                display: none; position: absolute; top: 70px; left: 0; width: 100%;
+                background-color: rgba(0, 0, 0, 0.95); padding: 20px 0; z-index: 1000;
+            }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; align-items: center; gap: 20px; }
+
+            .hero-text h1 { font-size: 1.8rem !important; text-align: center; line-height: 1.3 !important; }
+            .hero-text p { font-size: 1rem !important; text-align: center; }
+
+            .video-overlay-container { display: flex !important; flex-direction: row !important; justify-content: center !important; gap: 15px !important; padding-left: 0 !important; margin-top: 20px !important; }
+            .small-shorts { width: 45% !important; max-width: 160px; border-radius: 12px !important; transform: none !important; }
         }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 177.77%; /* 9:16 Ratio */
-            height: 0;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
-        }
-
-        .video-label {
-            display: block;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            font-size: 0.7rem;
-            text-align: center;
-            padding: 8px 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-       /* ======================================================
-   САМОСТОЯТЕЛЕН КОД ЗА МОБИЛНА ВЕРСИЯ (ДОБАВИ ОТДОЛУ)
-   ====================================================== */
-
-@media screen and (max-width: 768px) {
-    /* 1. НАСТРОЙКИ ЗА ЗАГЛАВИЕТО НА ТЕЛЕФОН */
-    .hero-text h1 {
-        font-size: 1.8rem !important; /* Намалява размера на заглавието */
-        text-align: center; /* Центрира заглавието */
-        line-height: 1.3 !important;
-    }
-
-    .hero-text p {
-        font-size: 1rem !important;
-        text-align: center;
-    }
-
-    /* 2. НАСТРОЙКИ ЗА ВИДЕАТА (9:16, ЕДНО ДО ДРУГО, ЗАОБЛЕНИ) */
-    .video-overlay-container {
-        display: flex !important;
-        flex-direction: row !important; /* Подрежда ги хоризонтално (едно до друго) */
-        justify-content: center !important; /* Центрира цялата секция */
-        gap: 15px !important; /* Разстояние между двете видеа */
-        padding-left: 0 !important; /* Премахва отстъпа, ако има такъв */
-        margin-top: 20px !important; /* Отстъп от горния елемент */
-    }
-
-    .small-shorts {
-        width: 45% !important; /* Всяко видео заема почти половината от ширината */
-        max-width: 160px; /* Ограничава максималната ширина */
-        border-radius: 12px !important; /* Заоблени рамки */
-        overflow: hidden !important; /* Важно, за да работят заоблените рамки */
-        margin: 0 !important; /* Премахва страничните отстъпи */
-        transform: none !important; /* Премахва наклона (rotate), ако има такъв */
-    }
-
-    /* Настройка за 9:16 формат на самите видео рамки */
-    .small-shorts .video-wrapper {
-        padding-bottom: 177.77% !important; /* Този процент определя формата 9:16 */
-    }
-
-    /* 3. НАСТРОЙКИ ЗА ХОРИЗОНТАЛЕН ЕКРАН (LANDSCAPE) */
-    @media screen and (orientation: landscape) {
-        .hero-wrapper {
-            min-height: 120vh !important; /* Позволява скролване в легнало положение */
-        }
-        .video-overlay-container {
-            padding-bottom: 50px !important; /* Допълнителен отстъп най-отдолу */
-        }
-    }
-}
     </style>
 </head>
 <body>
 
     <div class="hero-wrapper">
         <header>
-            <div class="logo">
-                <img src="лого1.png" alt="Лого">
+            <div class="logo"><img src="лого1.png" alt="Лого"></div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
             </div>
-            <nav>
+
+            <nav id="mainNav">
                 <ul>
                     <li><a href="за мен.html">За мен</a></li>
                     <li><a href="услуги.html">Услуги</a></li>
@@ -322,69 +136,53 @@ nav { flex: 2; display: flex; justify-content: center; }
                 </ul>
             </nav>
 
-<div class="header-socials">
-    <a href="https://www.instagram.com/manolovfit" target="_blank" class="social-img-btn">
-        <img src="инста.png" alt="Instagram">
-    </a>
-    <a href="https://www.tiktok.com/@manolovfit?_r=1&_t=ZN-95YMCQ1tBSB" target="_blank" class="social-img-btn">
-        <img src="тикток.png" alt="TikTok">
-    </a>
-</div>
-</header>
+            <div class="header-socials">
+                <a href="https://www.instagram.com/manolovfit" target="_blank" class="social-img-btn"><img src="инста.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@manolovfit" target="_blank" class="social-img-btn"><img src="тикток.png" alt="TikTok"></a>
+            </div>
+        </header>
+
         <section class="hero-text">
             <div class="quote-slider">
-                <div class="quote active">
-                    <h1>"Тренирай умно, живей <span class="underline-red">без болка</span> – <br> функционален фитнес за здрави стави"</h1>
-                </div>
-                <div class="quote">
-                    <h1>"Изгради силно и атлетично тяло <span class="underline-red"> с ефективни методи</span> – <br> за чиста мускулна маса"</h1>
-                </div>
-                <div class="quote">
-                    <h1>"Изгори излишните мазнини и  <span class="underline-red">влез във форма</span> с устойчиви, <br> здравословни навици"</h1>
-                </div>
+                <div class="quote active"><h1>"Тренирай умно, живей <span class="underline-red">без болка</span>"</h1></div>
+                <div class="quote"><h1>"Изгради силно тяло <span class="underline-red">с ефективни методи</span>"</h1></div>
+                <div class="quote"><h1>"Изгори мазнините и <span class="underline-red">влез във форма</span>"</h1></div>
             </div>
             <p>Възстановяване и функционални тренировки при проблеми с опорно-двигателния апарат</p>
             <a href="контакти.html" class="cta-btn">Запази безплатна консултация ></a>
         </section>
 
         <div class="video-overlay-container">
-    <div class="small-shorts">
-        <div class="video-wrapper">
-            <iframe 
-                src="https://www.youtube.com/embed/-uaevbKy7Vk?autoplay=1&mute=1&loop=1&playlist=-uaevbKy7Vk&controls=0&modestbranding=1&rel=0" 
-                title="Leg Extension" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+            <div class="small-shorts">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/-uaevbKy7Vk?autoplay=1&mute=1&loop=1&playlist=-uaevbKy7Vk&controls=0" allowfullscreen></iframe>
+                </div>
+                <span class="video-label">Leg Extension</span>
+            </div>
+            <div class="small-shorts">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/i6dOfMi93aw?autoplay=1&mute=1&loop=1&playlist=i6dOfMi93aw&controls=0" allowfullscreen></iframe>
+                </div>
+                <span class="video-label">Тренировка</span>
+            </div>
         </div>
-        <span class="video-label">Leg Extension</span>
     </div>
 
-    <div class="small-shorts">
-        <div class="video-wrapper">
-            <iframe 
-                src="https://www.youtube.com/embed/i6dOfMi93aw?autoplay=1&mute=1&loop=1&playlist=i6dOfMi93aw&controls=0&modestbranding=1&rel=0" 
-                title="Training" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        <span class="video-label">Тренировка</span>
-    </div>
-</div>
-    
     <script>
+        // Функция за хамбургер менюто
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Слайдер за цитатите
         const quotes = document.querySelectorAll('.quote');
         let currentIndex = 0;
-
         function changeQuote() {
             quotes[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % quotes.length;
             quotes[currentIndex].classList.add('active');
         }
-
         setInterval(changeQuote, 7000);
     </script>
 </body>
