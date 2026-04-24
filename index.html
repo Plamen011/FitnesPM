@@ -140,7 +140,7 @@
     }
 
     .hero-text h1 {
-        font-size: 1.9rem !important;
+        font-size: 2.1rem !important;
         line-height: 1.1 !important;
         margin-bottom: 5px !important;
     }
@@ -148,7 +148,7 @@
     /* Сивият текст се качва плътно под заглавието */
     .hero-text p {
         font-size: 0.75rem !important;
-        margin: -5px 0 5px 0 !important;
+       margin-top: 0 !important;
         line-height: 1.2 !important;
     }
 
@@ -161,18 +161,24 @@
 
     /* 3. ВИДЕАТА ОТИВАТ ДОЛУ ВДЯСНО (там, където начерта) */
     .video-overlay-container {
-        position: absolute !important;
-        top: auto !important; /* Премахва центрирането по вертикала */
-        bottom: 0% !important; /* Залепя ги ниско долу */
-        right: 10% !important; /* В десния ъгъл */
-        transform: none !important;
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 12px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        width: auto !important;
-    }
+    position: absolute !important;
+    /* 1. Сваляме ги под дъното на екрана, за да има скрол */
+    top: 115% !important; 
+    bottom: auto !important; /* Отменяме bottom, за да работи top */
+    
+    /* 2. Позиционираме ги да започват от средата на екрана надясно */
+    left: 50% !important; 
+    right: auto !important; 
+
+    transform: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    z-index: 10;
+}
 
     .small-shorts {
         width: 100px !important; /* Размер, който позволява да се виждат добре долу */
