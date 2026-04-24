@@ -170,9 +170,17 @@
     bottom: auto !important; /* Отменяме bottom, за да работи top */
     
     /* 2. Позиционираме ги да започват от средата на екрана надясно */
+  .video-overlay-container {
+    position: absolute !important;
+    /* НАМАЛИ ТОВА ЧИСЛО: 
+       Ако е било 115%, пробвай с 90% или 85%. 
+       100% означава точно под края на първия екран. */
+    top: 70% !important; 
+    
+    bottom: auto !important;
     left: 50% !important; 
     right: auto !important; 
-
+    
     transform: none !important;
     display: flex !important;
     flex-direction: row !important;
