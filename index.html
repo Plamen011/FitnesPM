@@ -196,6 +196,31 @@ nav { flex: 2; display: flex; justify-content: center; }
 @media screen and (max-width: 768px) { .container { width: 100%; padding: 0 15px; /* Дава малко разстояние от краищата на екрана */ }
 h1 { font-size: 6vw; /* vw означава viewport width - текстът ще се свива и разширява спрямо екрана */ }
 .photo-gallery { display: flex; flex-direction: column; /* Снимките се подреждат вертикално, за да не се застъпват */ } }  
+        /* Код за хоризонтален режим на телефони (Landscape) */
+@media screen and (max-width: 932px) and (orientation: landscape) {
+    .your-section-class {
+        min-height: auto; /* Позволява на секцията да се разпъне според текста */
+        padding: 50px 5%;
+        background-attachment: scroll; /* Паралаксът често бъгва на мобилни браузъри */
+    }
+
+    h1 {
+        font-size: 5vw; /* Малко по-малък текст, за да не заема целия екран */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row; /* Можеш да сложиш текста вляво, а снимката вдясно */
+        align-items: center;
+        gap: 20px;
+    }
+    
+    /* Ако снимката на човека е отделен елемент (img), намали размера ѝ */
+    .hero-image {
+        max-width: 40%;
+        height: auto;
+    }
+}
         /* ВИДЕО КОНТЕЙНЕР (Над кривата) */
         .video-overlay-container {
             display: flex;
