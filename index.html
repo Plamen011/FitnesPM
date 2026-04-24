@@ -128,32 +128,32 @@
     }
     .logo img { height: 35px !important; }
 
-    /* 2. Намаляваме основния текст */
+    /* 2. Намаляваме основния текст и го качваме нагоре */
     .hero-text {
-        padding: 10px 5% !important;
-        max-width: 60% !important; /* Оставяме място за видеата отдясно */
+        padding: 2px 5% !important; /* Минимален горен отстъп */
+        max-width: 60% !important;
     }
 
     .hero-text h1 {
-        font-size: 1.2rem !important; /* Значително по-малък текст */
+        font-size: 1.1rem !important; /* Още малко по-малък заглавен текст */
         line-height: 1.1 !important;
     }
 
     .hero-text p {
-        font-size: 0.8rem !important;
-        margin: 5px 0 !important;
+        font-size: 0.75rem !important;
+        margin: 2px 0 8px 0 !important; /* Намален маржин, за да се качи сивият текст нагоре */
     }
 
-    /* 3. По-малък и компактен бутон */
+    /* 3. Компактен бутон */
     .cta-btn {
-        padding: 8px 20px !important;
-        font-size: 0.8rem !important;
+        padding: 6px 15px !important; /* Още по-компактен бутон */
+        font-size: 0.75rem !important;
     }
 
-    /* 4. Видеата идват до бутона (вдясно) */
+    /* 4. Видеата слизат надолу */
     .video-overlay-container {
         position: absolute !important;
-        top: 50% !important;
+        top: 65% !important; /* Увеличено от 50%, за да слязат под нивото на заглавието */
         right: 5% !important;
         transform: translateY(-50%) !important;
         flex-direction: row !important;
@@ -164,8 +164,7 @@
     }
 
     .small-shorts {
-        width: 100px !important; /* Смаляваме видеата за хоризонтален изглед */
-        max-width: 120px !important;
+        width: 85px !important; /* Леко смалени, за да се съберат по-добре в долната част */
     }
 
     .video-label {
