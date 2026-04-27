@@ -6,20 +6,25 @@
     <title>Functional Fitness - Персонални тренировки</title>
     <style>
         /* --- ОБЩИ СТИЛОВЕ --- */
-       <style>
-    /* 1. ЗАДЪЛЖИТЕЛНО: Спира автоматичното уголемяване на текста в браузърите */
-    html {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-        margin: 0; padding: 0;
+      html {
+        /* Спира автоматичното уголемяване на текста в Safari/Chrome */
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
+        margin: 0;
+        padding: 0;
         background-color: #000;
     }
 
     body {
-        margin: 0; padding: 0;
+        margin: 0;
+        padding: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #000; color: white;
+        background-color: #000;
+        color: white;
         overflow-x: hidden;
+        /* Гарантира, че размерът на шрифта се рендира консистентно */
+        -webkit-font-smoothing: antialiased;
     }
 
         .hero-wrapper {
