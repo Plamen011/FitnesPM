@@ -115,11 +115,46 @@ position: relative; /* Това казва на бутона: ориентира
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-        @media (max-width: 768px) {
-            .about-section { background-size: cover; }
-            .about-card { padding: 30px; text-align: center; }
-            .stats-container { justify-content: center; }
-        }
+       @media (max-width: 768px) {
+    .about-section {
+        padding: 20px 10px; /* Намалява отстъпите отстрани */
+        align-items: flex-start; /* Позволява на текста да започне отгоре, за да се скролва */
+        background-attachment: scroll; /* Олекотява работата на браузъра на телефон */
+    }
+
+    .about-card {
+        width: 100%; /* Картата заема целия широк екран на телефона */
+        padding: 20px;
+        margin: 10px auto;
+        min-height: auto;
+    }
+
+    .about-card h2 {
+        font-size: 2rem; /* Намалява заглавието, за да не се разчупва грозно */
+        text-align: center;
+    }
+
+    .about-card p {
+        font-size: 1rem; /* Малко по-малък текст за по-лесно четене */
+        line-height: 1.5;
+    }
+
+    .stats-container {
+        flex-direction: column; /* Подрежда статовете вертикално */
+        gap: 15px;
+        align-items: center;
+    }
+
+    .btn-back {
+        position: relative; /* На телефон бутонът застава след текста, а не "плува" върху него */
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
     </style>
 </head>
 <body>
