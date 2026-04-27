@@ -173,26 +173,40 @@
         align-self: flex-start !important;
     }
 
-   @media screen and (max-width: 930px) and (orientation: landscape) {
+  @media screen and (max-width: 930px) and (orientation: landscape) {
+    /* Уверете се, че родителската секция е релативна */
+    .hero, .your-main-section-class { 
+        position: relative !important;
+        overflow: hidden; /* Предотвратява излизането на елементи */
+        min-height: 400px; /* Дайте минимална височина за landscape */
+    }
+
     .video-overlay-container {
         position: absolute !important;
-        /* Намаляваме top, за да се появят в екрана */
-        top: 100% !important;  /* Ако пак ги няма, сложи 50% */
-        left: 10% !important; /* Центрира ги малко по-надясно */
+        /* Вместо 100%, използвайте фиксирано разстояние от дъното или центъра */
+        top: 60% !important; 
+        right: 5% !important; /* По-добре да са вдясно, за да не пречат на текста */
+        left: auto !important;
         
-        right: auto !important;
-        bottom: auto !important;
         display: flex !important;
         flex-direction: row !important;
-        gap: 15px !important;
-        z-index: 9999 !important; /* Уверяваме се, че са най-отгоре */
-        transform: translateY(-50%) !important; /* Центрира ги спрямо техния център */
+        gap: 10px !important;
+        z-index: 10 !important;
+        transform: translateY(-50%) !important;
     }
 
     .small-shorts {
-        width: 100px !important; 
+        width: 80px !important; /* Намалете ги още малко за малки екрани */
         height: auto !important;
-        display: block !important;
+        border-radius: 8px;
+    }
+    
+    /* Корекция за текста, за да не се застъпва */
+    .hero-text {
+        max-width: 50% !important;
+        margin-top: 0 !important;
+        position: relative;
+        top: 20px;
     }
 }
     </style>
