@@ -220,6 +220,18 @@ text-align: justify;
         @media (max-width: 768px) {
             .services-section h2 { font-size: 2.2rem; }
             .services-section { background-attachment: scroll; }
+            .services-section { 
+        background-attachment: scroll; 
+    }
+
+    /* Добавяме това за скрола на прозореца при телефони */
+    .modal-content {
+        max-height: 85vh;    /* Ограничава височината */
+        overflow-y: auto;    /* Пуска скрола */
+        padding: 25px 20px;  /* Малко по-малки разстояния, за да съберем повече текст */
+        width: 95%;          /* По-широк прозорец на малък екран */
+    }
+}
         }
 /* Стил за червения бутон в модала */
 .btn-book-session {
