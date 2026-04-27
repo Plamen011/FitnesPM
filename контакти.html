@@ -14,50 +14,56 @@
 ">
 <style>
     /* Адаптивност за мобилни устройства (вертикално и хоризонтално) */
-    @media (max-width: 768px) {
-       /* Махаме страничните разстояния на основната секция */
+  @media (max-width: 768px) {
         #contact {
-            padding: 0 !important; 
-            display: block !important;
-            width: 100% !important;
+            padding: 0 !important; /* Премахва рамката от основната секция */
+            margin: 0 !important;
+            display: block !important; /* Позволява нормално скролване */
         }
 
-        /* Това премахва затъмняващия слой, който често блокира разпъването */
+        /* Премахваме фиксирания слой за центриране, който пречи на скрола */
         #contact > div[style*="position: absolute"] {
             display: none !important;
         }
 
-        /* КУТИЯТА СЪС СЪДЪРЖАНИЕТО - ПЪЛНА ШИРИНА */
+        /* КУТИЯТА СЪС СЪДЪРЖАНИЕТО - ЗАПЪЛВА 100% */
         #contact > div[style*="position: relative"] {
             width: 100% !important;
-            max-width: 100vw !important; /* 100% от широчината на екрана */
+            max-width: 100vw !important; /* Разпъва до крайните ръбове на телефона */
             margin: 0 !important;
-            padding: 40px 20px !important;
-            border-radius: 0 !important; /* Махаме заоблянето, за да прилепне плътно */
-            border-left: none !important;
-            border-right: none !important;
-            box-sizing: border-box !important;
+            padding: 50px 20px !important; /* Вътрешно разстояние, за да не опира текстът в стъклото */
+            border-radius: 0 !important; /* Премахва заоблянето, за да прилепне плътно */
+            border: none !important; /* Маха червената рамка за по-изчистен вид на цял екран */
+            min-height: 100vh !important; /* Заема цялата височина на екрана */
             display: flex !important;
             flex-direction: column !important;
-            min-height: 100vh !important;
-            background: rgba(20, 20, 20, 0.95) !important; /* Малко по-плътен фон за мобилен */
+            justify-content: flex-start !important;
+            background: rgba(20, 20, 20, 0.98) !important; /* Почти плътен фон */
         }
 
-        /* Центрираме заглавията на телефон */
+        /* Подреждане на информацията една под друга */
+        #contact > div[style*="display: grid"] {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 40px !important;
+        }
+
+        /* Оптимизация на текстовете и бутоните */
         #contact h2 {
-            font-size: 1.8rem !important;
+            font-size: 2.2rem !important;
             text-align: center !important;
         }
+        
         #contact p {
             text-align: center !important;
+            font-size: 1.1rem !important;
         }
 
-        /* Всички вътрешни елементи да са на 100% */
-        #contact form, 
-        #contact div[style*="display: flex"] {
+        input, textarea, button {
             width: 100% !important;
+            font-size: 16px !important; /* Важно за предотвратяване на зуум в iPhone */
+            padding: 18px !important; /* По-големи полета за по-лесно натискане */
         }
-    }
 
         /* Оптимизация специално за хоризонтален режим */
         @media (orientation: landscape) {
