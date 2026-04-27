@@ -5,37 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Блог - Manolov Fit</title>
     <style>
-.btn-back {
-    position: fixed; /* Използваме fixed, за да стои винаги там спрямо екрана */
-    bottom: 10px;    /* Нагоре от долния ръб */
-    right: 30px;     /* Наляво от десния ръб - точно при ръката */
-    padding: 10px 25px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    
-    /* СТЪКЛОВИДЕН ЕФЕКТ (Замъглен) */
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px);
-    
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    z-index: 9999; /* Да е над всичко */
-    cursor: pointer;
-}
-
-/* ИНТЕРАКТИВНОСТ */
-.btn-back:hover {
-    background: rgba(227, 30, 36, 0.4); /* Твоето червено, но прозрачно */
-    border-color: #e31e24;
-    transform: translateY(-5px); /* Вдига се леко нагоре */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
         /* --- ОСНОВНИ СТИЛОВЕ --- */
         * {
             margin: 0;
@@ -48,23 +17,40 @@
             background-color: #121212;
             color: white;
             line-height: 1.6;
-background-image: url('услуги.jpg'); /* Използваме името на файла на латиница */
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Паралакс ефект */
-    background-color: #121212; /* Резервен цвят */
-}
+            background-image: url('услуги.jpg');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
+        .btn-back {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            padding: 10px 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+
+        .btn-back:hover {
+            background: rgba(227, 30, 36, 0.4);
+            border-color: #e31e24;
+            transform: translateY(-5px);
+        }
 
         /* --- СЕКЦИЯ БЛОГ --- */
         .blog-section {
             padding: 80px 5%;
-            text-align: center; /* Центрира заглавието на секцията */
+            text-align: center;
             min-height: 100vh;
-<h2>ПОСЛЕДНИ <span>СТАТИИ</span></h2>
-
         }
 
         .blog-section h2 {
@@ -72,36 +58,12 @@ background-image: url('услуги.jpg'); /* Използваме името н
             margin-bottom: 50px;
             text-transform: uppercase;
             font-weight: 900;
-            letter-spacing: -1px;
-/* ДОБАВИ ТЕЗИ РЕДОВЕ ЗА ЦЕНТРИРАНЕ */
-    text-align: center; 
-    width: 100%;
-    display: block;
-.blog-section h2 {
-    text-align: center; /* Центрира текста */
-    width: 100%;        /* Заема целия ред */
-    font-size: 3rem;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    font-weight: 900;
-    color: white;       /* Основен цвят за думата ПОСЛЕДНИ */
-}
-
-.blog-section h2 span {
-    color: #e31e24;     /* Цвят само за думата СТАТИИ */
-}}
-
-.blog-section h2 span {
-    color: #e31e24;     /* Цвят само за думата СТАТИИ */
-}
-}
         }
 
         .blog-section h2 span {
-            color: #e31e24; /* Твоето червено */
+            color: #e31e24;
         }
 
-        /* МРЕЖА ЗА КАРТИТЕ */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -110,11 +72,6 @@ background-image: url('услуги.jpg'); /* Използваме името н
             margin: 0 auto;
         }
 
- #modalBody {
-    white-space: pre-line; /* Това позволява на браузъра да разпознава новите редове (\n) */
-    text-align: left;
-    padding-top: 10px;
-}       /* КАРТА НА СТАТИЯ */
         .blog-card {
             background: #1a1a1a;
             border-radius: 12px;
@@ -148,18 +105,14 @@ background-image: url('услуги.jpg'); /* Използваме името н
             color: #e31e24;
             font-size: 0.85rem;
             font-weight: bold;
-            text-transform: uppercase;
             margin-bottom: 10px;
             display: block;
         }
 
-        /* ЗАГЛАВИЕТО КАТО ЛИНК */
         .blog-content h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            line-height: 1.3;
-            color: #fff;
-            cursor: pointer; /* Показва, че може да се кликне */
+            cursor: pointer;
             transition: color 0.3s ease;
         }
 
@@ -167,36 +120,17 @@ background-image: url('услуги.jpg'); /* Използваме името н
             color: #e31e24;
         }
 
-        .blog-content p {
-            color: #aaa;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .read-more {
-            display: inline-block;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            border-bottom: 2px solid #e31e24;
-            padding-bottom: 2px;
-            cursor: pointer;
-        }
-
-        /* --- МОДАЛЕН ПРОЗОРЕЦ (ЗАМЪГЛЕН) --- */
+        /* --- МОДАЛЕН ПРОЗОРЕЦ --- */
         .modal {
-            display: none; /* Скрит по подразбиране */
+            display: none;
             position: fixed;
-            z-index: 9999;
+            z-index: 10000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(0.1px); /* Ефектът на замъгляване */
-            -webkit-backdrop-filter: blur(0.1px);
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -211,358 +145,40 @@ background-image: url('услуги.jpg'); /* Използваме името н
             max-height: 85vh;
             overflow-y: auto;
             position: relative;
-            border: 1px solid rgba(227, 30, 36, 0.5);
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border: 1px solid #e31e24;
+        }
+
+        #modalBody {
+            white-space: pre-line;
+            color: #ddd;
+            font-size: 1.1rem;
         }
 
         .close-modal {
             position: absolute;
             top: 15px;
             right: 20px;
-            font-size: 35px;
+            font-size: 30px;
             color: #aaa;
             cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-modal:hover {
-            color: #e31e24;
-        }
-
-        #modalTitle {
-            color: #e31e24;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-size: 1.8rem;
-        }
-
-        #modalBody {
-            font-size: 1.1rem;
-            color: #ddd;
-            line-height: 1.8;
-            white-space: pre-line; /* Запазва новите редове в текста */
-        }
-
-        /* Анимация за плавно отваряне */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .modal-content { animation: fadeIn 0.3s ease-out; }
-
-        @media (max-width: 768px) {
-            .blog-section h2 { font-size: 2.2rem; }
-            .modal-content { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
- <a href="index.html" class="btn-back"><</a>   
- <section class="blog-section">
-        <h2>Последни <span>Статии</span></h2>
+    <a href="index.html" class="btn-back">НАЗАД</a>
+
+    <section class="blog-section">
+        <h2>ПОСЛЕДНИ <span>СТАТИИ</span></h2>
 
         <div class="blog-grid">
-            
             <article class="blog-card">
                 <div class="blog-image" style="background-image: url('article1.jpg');"></div>
                 <div class="blog-content">
                     <span class="blog-date">15 Април, 2026</span>
-                    <h3 onclick="openArticle('Основите на устойчивата трансформация: Защо умните тренировки винаги побеждават тежките', 'Практично ръководство за начинаещи и хора след контузия или дълга пауза
-
-Започването на фитнес пътешествие или завръщането в залата след травма често е съпроводено с един голям въпрос: „Откъде да започна?“. Науката е категорична, че най-бързият път към резултатите не е най-интензивният, а най-постоянният. Основен принцип в спортната физиология е прогресивното натоварване, което означава плавно увеличаване на изискванията към тялото, за да му се даде време да се адаптира. Изследванията показват, че мускулната тъкан се възстановява по-бързо от сухожилията и ставните връзки, което често води до грешки при начинаещите. Когато бързаме да вдигаме тежко, ние рискуваме да претоварим пасивния апарат на тялото си, преди той да е готов.
-
-При наличие на стари травми, като дископатии или ставни проблеми, фокусът трябва да бъде върху функционалната стабилност. Проучвания в областта на биомеханиката потвърждават, че здравият „коремен корсет“ (core) предпазва гръбначния стълб и оптимизира предаването на сила към крайниците. Вместо изолирани машини, е добре да заложим на движения, които имитират реалния живот и подобряват координацията. Правилната техника на изпълнение не е просто естетика, а невромускулна необходимост за превенция на нови контузии.
-
-Храненето и почивката са другите два стълба, които често се подценяват, но са научно доказани фактори за успех. Протеиновият синтез и изграждането на нови тъкани се случват основно по време на сън, а не в залата. Тялото ни се нуждае от адекватен прием на макронутриенти, за да поправи микроскопичните разкъсвания в мускулните влакна, причинени от тренировката. Прекомерният стрес и липсата на възстановяване водят до повишени нива на кортизол, който пречи на изгарянето на мазнини и изграждането на мускули.
-
-Моят съвет към всеки, който стартира сега, е да гледа на тялото си като на дългосрочен проект, а не като на спринт за един месец. Слушайте сигналите на организма си и не бъркайте „полезната“ мускулна треска с острата ставна болка. Инвестицията в професионално водене и правилно програмиране е най-добрият начин да избегнете грешките, които спират напредъка. Фитнесът е наука за живота, която ни учи на дисциплина, търпение и уважение към собствените ни възможности. Крайната цел е не само да изглеждаме добре, но и да се чувстваме силни, подвижни и здрави във всяко едно движение.')">
-                        Как да тренираме след травма?
-                    </h3>
-                    <p>Научете основните принципи за безопасно завръщане в залата след контузия...</p>
-                    <span class="read-more" onclick="openArticle('Как да тренираме след травма?', '<!DOCTYPE html>
-<html lang="bg">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блог - Manolov Fit</title>
-    <style>
-.btn-back {
-    position: fixed; /* Използваме fixed, за да стои винаги там спрямо екрана */
-    bottom: 10px;    /* Нагоре от долния ръб */
-    right: 30px;     /* Наляво от десния ръб - точно при ръката */
-    padding: 10px 25px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    
-    /* СТЪКЛОВИДЕН ЕФЕКТ (Замъглен) */
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px);
-    
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    z-index: 9999; /* Да е над всичко */
-    cursor: pointer;
-}
-
-/* ИНТЕРАКТИВНОСТ */
-.btn-back:hover {
-    background: rgba(227, 30, 36, 0.4); /* Твоето червено, но прозрачно */
-    border-color: #e31e24;
-    transform: translateY(-5px); /* Вдига се леко нагоре */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-        /* --- ОСНОВНИ СТИЛОВЕ --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-
-        body {
-            background-color: #121212;
-            color: white;
-            line-height: 1.6;
-background-image: url('услуги.jpg'); /* Използваме името на файла на латиница */
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Паралакс ефект */
-    background-color: #121212; /* Резервен цвят */
-}
-        }
-
-
-        /* --- СЕКЦИЯ БЛОГ --- */
-        .blog-section {
-            padding: 80px 5%;
-            text-align: center; /* Центрира заглавието на секцията */
-            min-height: 100vh;
-<h2>ПОСЛЕДНИ <span>СТАТИИ</span></h2>
-
-        }
-
-        .blog-section h2 {
-            font-size: 3rem;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: -1px;
-/* ДОБАВИ ТЕЗИ РЕДОВЕ ЗА ЦЕНТРИРАНЕ */
-    text-align: center; 
-    width: 100%;
-    display: block;
-.blog-section h2 {
-    text-align: center; /* Центрира текста */
-    width: 100%;        /* Заема целия ред */
-    font-size: 3rem;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    font-weight: 900;
-    color: white;       /* Основен цвят за думата ПОСЛЕДНИ */
-}
-
-.blog-section h2 span {
-    color: #e31e24;     /* Цвят само за думата СТАТИИ */
-}}
-
-.blog-section h2 span {
-    color: #e31e24;     /* Цвят само за думата СТАТИИ */
-}
-}
-        }
-
-        .blog-section h2 span {
-            color: #e31e24; /* Твоето червено */
-        }
-
-        /* МРЕЖА ЗА КАРТИТЕ */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
- #modalBody {
-    white-space: pre-line; /* Това позволява на браузъра да разпознава новите редове (\n) */
-    text-align: left;
-    padding-top: 10px;
-}       /* КАРТА НА СТАТИЯ */
-        .blog-card {
-            background: #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            border-color: #e31e24;
-            box-shadow: 0 10px 30px rgba(227, 30, 36, 0.2);
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 220px;
-            background-color: #333;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .blog-content {
-            padding: 25px;
-        }
-
-        .blog-date {
-            color: #e31e24;
-            font-size: 0.85rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        /* ЗАГЛАВИЕТО КАТО ЛИНК */
-        .blog-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            line-height: 1.3;
-            color: #fff;
-            cursor: pointer; /* Показва, че може да се кликне */
-            transition: color 0.3s ease;
-        }
-
-        .blog-content h3:hover {
-            color: #e31e24;
-        }
-
-        .blog-content p {
-            color: #aaa;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .read-more {
-            display: inline-block;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            border-bottom: 2px solid #e31e24;
-            padding-bottom: 2px;
-            cursor: pointer;
-        }
-
-        /* --- МОДАЛЕН ПРОЗОРЕЦ (ЗАМЪГЛЕН) --- */
-        .modal {
-            display: none; /* Скрит по подразбиране */
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(0.1px); /* Ефектът на замъгляване */
-            -webkit-backdrop-filter: blur(0.1px);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background-color: #1a1a1a;
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 800px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            border: 1px solid rgba(227, 30, 36, 0.5);
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 35px;
-            color: #aaa;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-modal:hover {
-            color: #e31e24;
-        }
-
-        #modalTitle {
-            color: #e31e24;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-size: 1.8rem;
-        }
-
-        #modalBody {
-            font-size: 1.1rem;
-            color: #ddd;
-            line-height: 1.8;
-            white-space: pre-line; /* Запазва новите редове в текста */
-        }
-
-        /* Анимация за плавно отваряне */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .modal-content { animation: fadeIn 0.3s ease-out; }
-
-        @media (max-width: 768px) {
-            .blog-section h2 { font-size: 2.2rem; }
-            .modal-content { padding: 25px; }
-        }
-    </style>
-</head>
-<body>
-
- <a href="index.html" class="btn-back"><</a>   
- <section class="blog-section">
-        <h2>Последни <span>Статии</span></h2>
-
-        <div class="blog-grid">
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('article1.jpg');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">15 Април, 2026</span>
-                    <h3 onclick="openArticle('Основите на устойчивата трансформация: Защо умните тренировки винаги побеждават тежките', 'Практично ръководство за начинаещи и хора след контузия или дълга пауза
-
-Започването на фитнес пътешествие или завръщането в залата след травма често е съпроводено с един голям въпрос: „Откъде да започна?“. Науката е категорична, че най-бързият път към резултатите не е най-интензивният, а най-постоянният. Основен принцип в спортната физиология е прогресивното натоварване, което означава плавно увеличаване на изискванията към тялото, за да му се даде време да се адаптира. Изследванията показват, че мускулната тъкан се възстановява по-бързо от сухожилията и ставните връзки, което често води до грешки при начинаещите. Когато бързаме да вдигаме тежко, ние рискуваме да претоварим пасивния апарат на тялото си, преди той да е готов.
-
-При наличие на стари травми, като дископатии или ставни проблеми, фокусът трябва да бъде върху функционалната стабилност. Проучвания в областта на биомеханиката потвърждават, че здравият „коремен корсет“ (core) предпазва гръбначния стълб и оптимизира предаването на сила към крайниците. Вместо изолирани машини, е добре да заложим на движения, които имитират реалния живот и подобряват координацията. Правилната техника на изпълнение не е просто естетика, а невромускулна необходимост за превенция на нови контузии.
-
-Храненето и почивката са другите два стълба, които често се подценяват, но са научно доказани фактори за успех. Протеиновият синтез и изграждането на нови тъкани се случват основно по време на сън, а не в залата. Тялото ни се нуждае от адекватен прием на макронутриенти, за да поправи микроскопичните разкъсвания в мускулните влакна, причинени от тренировката. Прекомерният стрес и липсата на възстановяване водят до повишени нива на кортизол, който пречи на изгарянето на мазнини и изграждането на мускули.
-
-Моят съвет към всеки, който стартира сега, е да гледа на тялото си като на дългосрочен проект, а не като на спринт за един месец. Слушайте сигналите на организма си и не бъркайте „полезната“ мускулна треска с острата ставна болка. Инвестицията в професионално водене и правилно програмиране е най-добрият начин да избегнете грешките, които спират напредъка. Фитнесът е наука за живота, която ни учи на дисциплина, търпение и уважение към собствените ни възможности. Крайната цел е не само да изглеждаме добре, но и да се чувстваме силни, подвижни и здрави във всяко едно движение.')">
-                        Как да тренираме след травма?
-                    </h3>
-                    <p>Научете основните принципи за безопасно завръщане в залата след контузия...</p>
-                    <span class="read-more" onclick="openArticle('Как да тренираме след травма?', 'Пълният текст тук...')">Прочети повече</span>
+                    <h3 onclick="openArticle('art1', 'Как да тренираме след травма?')">Как да тренираме след травма?</h3>
+                    <p>Научете основните принципи за безопасно завръщане в залата...</p>
+                    <span class="read-more" style="color:#e31e24; cursor:pointer; font-weight:bold;" onclick="openArticle('art1', 'Как да тренираме след травма?')">ПРОЧЕТИ ПОВЕЧЕ</span>
                 </div>
             </article>
 
@@ -570,100 +186,58 @@ background-image: url('услуги.jpg'); /* Използваме името н
                 <div class="blog-image" style="background-image: url('article2.jpg');"></div>
                 <div class="blog-content">
                     <span class="blog-date">10 Април, 2026</span>
-                    <h3 onclick="openArticle('Хранене за мобилност', 'Текстът за храната тук.\n\nСтавните връзки се нуждаят от специфични нутриенти...')">
-                        Хранене за мобилност и стави
-                    </h3>
-                    <p>Кои храни помагат за по-доброто смазване на ставите и еластичност на връзките?</p>
-                    <span class="read-more" onclick="openArticle('Хранене за мобилност', '')">Прочети повече</span>
+                    <h3 onclick="openArticle('art2', 'Хранене за мобилност')">Хранене за мобилност и стави</h3>
+                    <p>Кои храни помагат за по-доброто смазване на ставите?</p>
+                    <span class="read-more" style="color:#e31e24; cursor:pointer; font-weight:bold;" onclick="openArticle('art2', 'Хранене за мобилност')">ПРОЧЕТИ ПОВЕЧЕ</span>
                 </div>
             </article>
-
         </div>
     </section>
 
     <div id="articleModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeArticle()">&times;</span>
-            <h2 id="modalTitle"></h2>
+            <h2 id="modalTitle" style="color:#e31e24; margin-bottom:20px;"></h2>
             <div id="modalBody"></div>
         </div>
     </div>
 
     <script>
-        function openArticle(title, content) {
-            const modal = document.getElementById('articleModal');
+        // ТЕКСТОВЕТЕ СА ТУК - ЗАЩИТЕНИ И ПОДРЕДЕНИ
+        const articles = {
+            art1: `Започването на фитнес пътешествие или завръщането в залата след травма често е съпроводено с един голям въпрос: „Откъде да започна?“. Науката е категорична, че най-бързият път към резултатите не е най-интензивният, а най-постоянният. Основен принцип в спортната физиология е прогресивното натоварване, което означава плавно увеличаване на изискванията към тялото, за да му се даде време да се адаптира.
+
+При наличие на стари травми, като дископатии или ставни проблеми, фокусът трябва да бъде върху функционалната стабилност. Проучвания в областта на биомеханиката потвърждават, че здравият „коремен корсет“ (core) предпазва гръбначния стълб и оптимизира предаването на сила към крайниците.
+
+Храненето и почивката са другите два стълба, които често се подценяват, но са научно доказани фактори за успех. Тялото ни се нуждае от адекватен прием на макронутриенти, за да поправи микроскопичните разкъсвания в мускулните влакна.
+
+Моят съвет към всеки, който стартира сега, е да гледа на тялото си като на дългосрочен проект, а не като на спринт за един месец. Слушайте сигналите на организма си и не бъркайте „полезната“ мускулна треска с острата ставна болка.`,
+            
+            art2: `Храненето играе ключова роля в здравето на нашите стави. Ставните връзки се нуждаят от специфични нутриенти, за да останат еластични и здрави.
+
+Основни елементи:
+1. Колаген и Витамин С - за здравина на съединителната тъкан.
+2. Омега-3 мастни киселини - за намаляване на възпаленията.
+3. Хидратация - водата е основен компонент на синовиалната течност (смазката на ставите).`
+        };
+
+        function openArticle(id, title) {
             document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalBody').innerText = content;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Спира скрола на фона
+            document.getElementById('modalBody').innerText = articles[id];
+            document.getElementById('articleModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeArticle() {
-            const modal = document.getElementById('articleModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Връща скрола
+            document.getElementById('articleModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
-        // Затваряне при клик извън черната кутия
         window.onclick = function(event) {
-            const modal = document.getElementById('articleModal');
-            if (event.target == modal) {
+            if (event.target == document.getElementById('articleModal')) {
                 closeArticle();
             }
         }
     </script>
-
-</body>
-</html>')">Прочети повече</span>
-                </div>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('article2.jpg');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">10 Април, 2026</span>
-                    <h3 onclick="openArticle('Хранене за мобилност', 'Текстът за храната тук.\n\nСтавните връзки се нуждаят от специфични нутриенти...')">
-                        Хранене за мобилност и стави
-                    </h3>
-                    <p>Кои храни помагат за по-доброто смазване на ставите и еластичност на връзките?</p>
-                    <span class="read-more" onclick="openArticle('Хранене за мобилност', '')">Прочети повече</span>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <div id="articleModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeArticle()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <script>
-        function openArticle(title, content) {
-            const modal = document.getElementById('articleModal');
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalBody').innerText = content;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Спира скрола на фона
-        }
-
-        function closeArticle() {
-            const modal = document.getElementById('articleModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Връща скрола
-        }
-
-        // Затваряне при клик извън черната кутия
-        window.onclick = function(event) {
-            const modal = document.getElementById('articleModal');
-            if (event.target == modal) {
-                closeArticle();
-            }
-        }
-    </script>
-
 </body>
 </html>
