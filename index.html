@@ -176,7 +176,19 @@
     }
 
     .hero-text h1 { font-size: 1.5rem !important; line-height: 1.1 !important; margin-bottom: 7px !important; }
-    .hero-text p { font-size: 0.8rem !important; max-width: 280px !important; }
+    .hero-text p {
+        /* Рестартираме разпъването от край до край */
+        width: auto !important; 
+        margin-left: 0 !important; 
+        
+        /* Правим го компактен и елегантен */
+        max-width: 320px !important; 
+        background-color: rgba(0, 0, 0, 0.3) !important; /* По-дискретен фон */
+        padding: 10px 15px !important;
+        border-radius: 8px !important; /* Тук заоблянето изглежда по-добре */
+        text-align: left !important; /* В landscape текстът вляво стои по-добре */
+        
+        display: inline-block !important;
 
     /* Бутонът под текста */
     .cta-btn {
