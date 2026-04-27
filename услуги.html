@@ -183,6 +183,10 @@ backdrop-filter: blur(15px);
             text-align: left;
 text-align: justify;
             animation: modalFade 0.3s ease;
+            max-height: 85vh;    /* Ограничава височината до 85% от екрана */
+    overflow-y: auto;    /* Пуска скрол вътре в прозореца */
+    -webkit-overflow-scrolling: touch; /* Прави скрола плавен на iPhone */
+
         }
 
         @keyframes modalFade {
