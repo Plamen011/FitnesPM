@@ -151,58 +151,57 @@
 
 /* 2. ХОРИЗОНТАЛЕН ЕКРАН (LANDSCAPE) */
 @media screen and (max-width: 930px) and (orientation: landscape) {
-    /* 1. ГАРАНТИРАМЕ, ЧЕ РОДИТЕЛЯТ Е СТАБИЛЕН */
+    /* 1. Главната секция става "кутия", която подрежда всичко автоматично */
     .hero {
-        position: relative !important;
         display: flex !important;
         flex-direction: row !important; /* Текст вляво, видеа вдясно */
-        align-items: center !important;
-        justify-content: space-around !important;
+        align-items: center !important; /* Центрира ги вертикално */
+        justify-content: space-between !important; /* Разделя ги в двата края */
         height: 100vh !important;
-        min-height: 400px !important;
-        padding: 0 5% !important;
-        overflow: hidden !important;
-    }
-
-    /* 2. ОПРАВЯМЕ ТЕКСТА (НУЛИРАМЕ CALC-А) */
-    .hero-text {
+        padding: 0 8% !important;
         position: relative !important;
+    }
+
+    /* 2. Текстът - става компактен и чист */
+    .hero-text {
         max-width: 45% !important;
+        text-align: left !important;
         margin: 0 !important;
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
-        z-index: 10 !important;
-    }
-
-    .hero-text p {
-        /* ТУК Е КЛЮЧЪТ: Нулираме разпъването от край до край */
-        width: auto !important; 
-        margin-left: 0 !important; 
-        font-size: 0.8rem !important;
-        line-height: 1.3 !important;
-        background: rgba(0, 0, 0, 0.4) !important;
-        padding: 10px 15px !important;
-        display: inline-block !important; /* Да не заема целия ред */
-        border-radius: 8px !important;
-    }
-
-    /* 3. ОПРАВЯМЕ ВИДЕАТА */
-    .video-overlay-container {
-        position: relative !important; /* Вече не плуват свободно */
-        display: flex !important;
-        gap: 15px !important;
-        right: auto !important;
-        bottom: auto !important;
+        position: relative !important;
         top: auto !important;
         left: auto !important;
         transform: none !important;
     }
 
+    /* 3. Сивият фон на текста - НУЛИРАМЕ ПРОБЛЕМНИТЕ СТОЙНОСТИ */
+    .hero-text p {
+        width: auto !important; /* ВАЖНО: спира 100vw */
+        margin-left: 0 !important; /* ВАЖНО: спира calc-а */
+        font-size: 0.8rem !important;
+        background: rgba(0, 0, 0, 0.4) !important;
+        padding: 10px 15px !important;
+        display: inline-block !important; /* Обгръща само текста */
+        border-radius: 8px !important;
+    }
+
+    /* 4. Контейнерът с видеата */
+    .video-overlay-container {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 15px !important;
+        position: relative !important; /* Спираме absolute, за да ги контролира Flexbox */
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+
     .small-shorts {
-        width: 90px !important;
-        height: 140px !important;
+        width: 85px !important;
+        height: 130px !important;
         object-fit: cover !important;
+        border-radius: 12px !important;
     }
 }
     </style>
