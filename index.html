@@ -143,69 +143,71 @@
 
 /* 2. ХОРИЗОНТАЛЕН ЕКРАН (LANDSCAPE) */
 @media screen and (max-width: 930px) and (orientation: landscape) {
-    header { padding: 5px 5% !important; height: auto !important; }
-    .logo img { height: 30px !important; }
+    /* Общи настройки за хедъра */
+    header { 
+        padding: 5px 5% !important; 
+        height: auto !important; 
+    }
+    
+    .logo img { 
+        height: 30px !important; 
+    }
 
+    /* Главната секция - КЛЮЧОВО за позиционирането */
+    .hero { 
+        position: relative !important; 
+        min-height: 420px !important; /* Увеличено, за да има място за всичко */
+        height: 100vh !important;
+        overflow: hidden !important; 
+    }
+
+    /* Текстът вляво */
     .hero-text {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important;
-        padding-top: 2 !important;
-        margin-top:-86px !important;
-        max-width: 55% !important;
-        z-index: 5;
+        justify-content: center !important; /* Центрира текста вертикално спрямо екрана */
+        position: absolute !important;
+        top: 50% !important;
+        left: 5% !important;
+        transform: translateY(-50%) !important;
+        max-width: 45% !important;
+        margin: 0 !important;
+        z-index: 10;
     }
 
-    .hero-text h1 { font-size: 1.6rem !important; line-height: 1.1 !important; margin-bottom: 7px !important; text-align: left !important; }
+    .hero-text h1 { font-size: 1.5rem !important; line-height: 1.1 !important; margin-bottom: 7px !important; }
+    .hero-text p { font-size: 0.8rem !important; max-width: 280px !important; }
 
-    .hero-text p {
-        font-size: 0.75rem !important;
-        margin-top: -4px !important;
-        line-height: 1.2 !important;
-        display: block !important;
-        text-align: left !important;
-        max-width: 250px !important; /* Текстът е на нов ред само тук */
-    }
-
+    /* Бутонът под текста */
     .cta-btn {
-        padding: 6px 15px !important;
-        font-size: 0.75rem !important;
+        padding: 8px 18px !important;
+        font-size: 0.8rem !important;
         align-self: flex-start !important;
+        margin-top: 10px !important;
     }
 
- @media screen and (max-width: 930px) and (orientation: landscape) {
-    /* 1. Задължително правим родителя релативен, за да не "бягат" видеата */
-    .hero { 
-        position: relative !important; 
-        min-height: 380px !important; /* Гарантираме, че секцията няма да се сплеска */
-        overflow: hidden; 
-    }
-
+    /* Контейнерът с видеата - ЗАКОВАН долу вдясно */
     .video-overlay-container {
         position: absolute !important;
-        /* Махаме процентите отгоре и ползваме фиксирано разстояние от дъното */
-        bottom: 15px !important; 
-        right: 20px !important;  
+        bottom: 25px !important; /* Разстояние от долния край */
+        right: 5% !important;   /* Разстояние от десния край */
         top: auto !important;
         left: auto !important;
         
         display: flex !important;
-        flex-direction: row !important; /* Подреждаме ги едно до друго */
-        gap: 12px !important;
-        transform: none !important; /* Махаме транслацията, тя само обърква мобилните браузъри */
+        flex-direction: row !important;
+        gap: 15px !important;
+        transform: none !important; /* Махаме транслацията за пълна съвместимост */
         z-index: 100 !important;
     }
 
     .small-shorts {
-        width: 85px !important; /* Малко по-малки, за да не закриват лицето на човека на заден план */
-        height: auto !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Добавяме малко сянка за дълбочина */
-    }
-
-    /* Преместваме текста малко по-вляво, за да не се блъска в картинките */
-    .hero-text {
-        max-width: 45% !important;
-        margin-top: -20px !important;
+        width: 90px !important; /* Фиксирана ширина */
+        height: 130px !important; /* Фиксирана височина за еднаквост */
+        object-fit: cover !important;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4) !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
     }
 }
     </style>
