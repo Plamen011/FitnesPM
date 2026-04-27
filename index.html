@@ -113,83 +113,76 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- МОБИЛНИ КОРЕКЦИИ --- */
-        @media screen and (max-width: 768px) and (orientation: portrait) {
-    .hamburger { display: flex; }
-    nav {
-        display: none; position: absolute; top: 70px; left: 0; width: 100%;
-        background-color: rgba(0, 0, 0, 0.8) !important; padding: 40px 0;
-        z-index: 1000; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    }
-    nav.active { display: block; }
-    nav ul { flex-direction: column; align-items: center; gap: 20px; }
+      @media screen and (max-width: 768px) and (orientation: portrait) {
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
 
-    .hero-text h1 { font-size: 1.8rem !important; text-align: center; line-height: 1.3 !important; }
-    
-    /* Сивият текст се разпъва красиво само тук */
-    .hero-text p { 
-        font-size: 0.8rem !important; 
-        text-align: center; 
-        background-color: rgba(0, 0, 0, 0.4) !important;
-        padding: 15px 25px !important;  
-        display: block !important; 
-        width: 100vw !important; 
-        margin-left: calc(-50vw + 50%) !important; 
-        box-sizing: border-box !important;
-        border-radius: 0 !important;
-    }
+        .hero-text h1 { font-size: 1.8rem !important; }
+        
+        .hero-text p { 
+            font-size: 0.85rem !important; 
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            box-sizing: border-box;
+        }
 
-    .video-overlay-container { 
-        display: flex !important; 
-        flex-direction: row !important; 
-        justify-content: center !important; 
-        width: 100% !important;
-        margin-top: 20px !important;
-        gap: 15px !important;
-    }
-    .small-shorts { width: 120px !important; height: auto; border-radius: 12px !important; }
-}
+        .video-overlay-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-/* 2. ХОРИЗОНТАЛЕН ЕКРАН (LANDSCAPE) */
-@media screen and (max-width: 930px) and (orientation: landscape) {
-    .hero {
-        display: flex !important;
-        flex-direction: row !important; /* Текст вляво, видео вдясно */
-        align-items: center !important;
-        justify-content: space-between !important;
-        height: 100vh !important;
-        padding: 0 5% !important;
+        .small-shorts { width: 110px; height: auto; border-radius: 10px; }
     }
 
-    .hero-text {
-        max-width: 45% !important;
-        text-align: left !important;
-        margin-top: 20px !important;
-    }
+    /* 3. Хоризонтален режим (Landscape) - Когато завъртиш телефона */
+    @media screen and (max-width: 930px) and (orientation: landscape) {
+        .hero {
+            display: flex !important;
+            flex-direction: row !important; /* Текст вляво, видео вдясно */
+            align-items: center !important;
+            justify-content: space-around !important;
+            height: 100vh !important;
+            padding: 0 5% !important;
+        }
 
-    /* ВРЪЩАМЕ ТЕКСТА В НОРМАЛЕН ВИД (БЕЗ 100vw) */
-    .hero-text p {
-        width: auto !important; 
-        margin-left: 0 !important; 
-        font-size: 0.8rem !important;
-        background: rgba(0, 0, 0, 0.5) !important;
-        padding: 10px 15px !important;
-        display: inline-block !important; 
-        border-radius: 8px !important;
-    }
+        .hero-text {
+            max-width: 45% !important;
+            text-align: left !important;
+        }
 
-    .video-overlay-container {
-        display: flex !important;
-        gap: 10px !important;
-        margin: 0 !important;
-        justify-content: flex-end !important;
-    }
+        .hero-text h1 { font-size: 1.4rem !important; }
 
-    .small-shorts {
-        width: 80px !important;
-        height: 120px !important;
-        object-fit: cover !important;
+        .hero-text p {
+            font-size: 0.85rem !important;
+            width: auto !important; 
+            margin: 10px 0 !important;
+            padding: 10px !important;
+            background: rgba(0, 0, 0, 0.5) !important;
+            display: inline-block !important;
+            border-radius: 8px !important;
+        }
+
+        .video-overlay-container {
+            display: flex !important;
+            gap: 15px !important;
+        }
+
+        .small-shorts {
+            width: 85px !important;
+            height: 130px !important;
+            object-fit: cover !important;
+            border-radius: 10px !important;
+        }
     }
-}
     </style>
 </head>
 <body>
