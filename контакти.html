@@ -12,6 +12,56 @@
     flex-direction: column;
     justify-content: center; /* Центрира съдържанието вертикално /* Паралакс ефект */
 ">
+<style>
+    /* Адаптивност за мобилни устройства (вертикално и хоризонтално) */
+    @media (max-width: 768px), (max-height: 600px) {
+        /* 1. Правим основната секция скролваема */
+        #contact {
+            padding: 40px 10px !important;
+            display: block !important; /* Позволява скрол на нисък екран */
+            overflow-y: auto !important;
+            background-attachment: scroll !important; /* Паралаксът не работи добре на телефон */
+        }
+
+        /* 2. Премахваме черния слой, който блокира скрола */
+        #contact > div:first-child {
+            display: none !important; /* Премахва фиксацията, която спира скрола */
+        }
+
+        /* 3. Разпъваме основната кутия на целия екран */
+        #contact > div:nth-child(2) {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            grid-template-columns: 1fr !important; /* Елементите застават един под друг */
+            gap: 30px !important;
+            padding: 20px 15px !important;
+            border-radius: 10px !important;
+        }
+
+        /* 4. Намаляваме шрифтовете за телефон */
+        #contact h2 {
+            font-size: 1.8rem !important;
+            text-align: center;
+        }
+
+        #contact p {
+            text-align: center;
+        }
+
+        /* 5. Улесняваме писането в полетата */
+        input, textarea, button {
+            font-size: 16px !important; /* Важно за Safari на iPhone */
+        }
+
+        /* Оптимизация специално за хоризонтален режим */
+        @media (orientation: landscape) {
+            #contact {
+                padding-top: 20px !important;
+            }
+        }
+    }
+</style>
     <div style="
         position: absolute;
         top: 0;
