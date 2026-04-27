@@ -5,33 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Functional Fitness - Персонални тренировки</title>
     <style>
-        /* --- ОБЩИ СТИЛОВЕ --- */
-      html {
-        /* Спира автоматичното уголемяване на текста в Safari/Chrome */
-        -webkit-text-size-adjust: 100% !important;
-        text-size-adjust: 100% !important;
-        -ms-text-size-adjust: 100% !important;
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-    }
+        /* --- 1. ГЛОБАЛНИ СТИЛОВЕ И ФИКС ЗА ШРИФТА --- */
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            margin: 0; padding: 0;
+            background-color: #000;
+        }
 
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #000;
-        color: white;
-        overflow-x: hidden;
-        /* Гарантира, че размерът на шрифта се рендира консистентно */
-        -webkit-font-smoothing: antialiased;
-    }
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000; color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
         .hero-wrapper {
             position: relative;
             width: 100%; min-height: 100vh;
             background: url('back.jpg') no-repeat center top;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
         }
 
         /* --- НАВИГАЦИЯ --- */
@@ -41,148 +37,71 @@
             position: relative; z-index: 1000;
         }
 
-        .logo { flex: 1; }
         .logo img { height: 50px; }
-
-        nav { flex: 2; display: flex; justify-content: center; }
         nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-
-        nav ul li a {
-            text-decoration: none; color: white; position: relative;
-            padding-bottom: 5px; font-weight: bold; font-size: 14px;
-            text-transform: uppercase; transition: color 0.3s ease;
-        }
-
-        nav ul li a::after {
-            content: ''; position: absolute; width: 0; height: 2px;
-            bottom: 0; left: 0; background-color: #e31e24;
-            transition: width 0.3s ease;
+        nav ul li a { 
+            text-decoration: none; color: white; font-weight: bold; font-size: 14px; 
+            text-transform: uppercase; transition: color 0.3s ease; 
         }
         nav ul li a:hover { color: #e31e24; }
-        nav ul li a:hover::after { width: 100%; }
 
-        /* --- СОЦИАЛНИ МРЕЖИ --- */
-        .header-socials { display: flex; gap: 15px; align-items: center; justify-content: flex-end; flex: 1; }
-        .social-img-btn { transition: transform 0.3s ease-out; cursor: pointer; line-height: 0; }
-        .social-img-btn img {
-            filter: brightness(0) invert(1); width: 28px; height: 28px;
-            object-fit: contain; border-radius: 5px;
-        }
-        .social-img-btn:hover { transform: translateY(-5px) scale(1.1); }
-
-        /* --- ХАМБУРГЕР МЕНЮ --- */
-        .hamburger {
-            display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
-        }
-        .hamburger span { width: 30px; height: 3px; background-color: white; transition: 0.3s; }
+        .header-socials { display: flex; gap: 15px; }
+        .social-img-btn img { filter: brightness(0) invert(1); width: 28px; height: 28px; }
 
         /* --- HERO TEXT --- */
-        .hero-text { padding: 60px 5% 20px 5%; max-width: 800px; }
-        .quote-slider { min-height: 180px; display: flex; align-items: center; }
-        .quote { display: none; animation: fadeIn 0.8s ease-in-out; }
-        .quote.active { display: block; }
+        .hero-text { padding: 60px 5% 20px 5%; max-width: 800px; position: relative; z-index: 5; }
         .hero-text h1 { font-size: 3rem; font-weight: 900; line-height: 1.2; margin: 0; }
-        .underline-red { position: relative; white-space: nowrap; }
-        .underline-red::after {
-            content: ''; position: absolute; left: 0; bottom: -5px;
-            width: 100%; height: 4px; background-color: #e31e24;
-        }
+        .underline-red { position: relative; border-bottom: 4px solid #e31e24; }
         .hero-text p { font-size: 1.2rem; color: #ccc; margin: 20px 0 30px 0; }
 
         .cta-btn {
             background-color: #e31e24; color: white; padding: 15px 35px;
             text-decoration: none; font-weight: bold; border-radius: 5px;
-            display: inline-block; transition: all 0.3s ease-out;
-            position: relative; z-index: 999; cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: inline-block; transition: 0.3s;
         }
-        .cta-btn:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 15px 25px rgba(227, 30, 36, 0.5); background-color: #ff2229; }
 
         /* --- ВИДЕА --- */
-        .video-overlay-container { display: flex; gap: 30px; margin-top: -110px; padding-left: 30%; position: relative; z-index: 10; }
-        .small-shorts {
-            width: 140px; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);
-            transform: rotate(-2deg); transition: all 0.3s ease; background: #000;
-        }
-        .small-shorts:hover { transform: rotate(0deg) scale(1.1); border-color: #e31e24; }
+        .video-overlay-container { display: flex; gap: 30px; margin-top: 40px; padding-left: 5%; position: relative; z-index: 10; }
+        .small-shorts { width: 140px; border-radius: 12px; overflow: hidden; background: #000; transform: rotate(-2deg); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
         .video-wrapper { position: relative; padding-bottom: 177.77%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-label { display: block; background: rgba(0,0,0,0.8); color: white; font-size: 0.7rem; text-align: center; padding: 8px 5px; font-weight: bold; text-transform: uppercase; }
+        .video-label { display: block; background: rgba(0,0,0,0.8); color: white; font-size: 0.7rem; text-align: center; padding: 8px 5px; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- МОБИЛНИ КОРЕКЦИИ --- */
-      @media screen and (max-width: 768px) and (orientation: portrait) {
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
+        /* --- МОБИЛНИ: ВЕРТИКАЛЕН РЕЖИМ --- */
+        @media screen and (max-width: 768px) and (orientation: portrait) {
+            .hero-wrapper { align-items: center; text-align: center; }
+            .hero-text h1 { font-size: 1.8rem !important; }
+            .hero-text p { 
+                font-size: 0.85rem !important; 
+                background: rgba(0, 0, 0, 0.4); 
+                padding: 15px; width: 100vw; 
+                margin-left: calc(-50vw + 50%); 
+            }
+            .video-overlay-container { justify-content: center; padding-left: 0; margin-top: 20px; }
+            .small-shorts { width: 110px; }
         }
 
-        .hero-text h1 { font-size: 1.8rem !important; }
-        
-        .hero-text p { 
-            font-size: 0.85rem !important; 
-            background: rgba(0, 0, 0, 0.4);
-            padding: 15px;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            box-sizing: border-box;
+        /* --- МОБИЛНИ: ХОРИЗОНТАЛЕН РЕЖИМ --- */
+        @media screen and (max-width: 930px) and (orientation: landscape) {
+            .hero-wrapper {
+                flex-direction: row !important; 
+                align-items: center !important;
+                justify-content: space-between !important;
+                height: 100vh !important;
+                overflow: hidden !important;
+            }
+            header { position: absolute; top: 0; width: 95%; background: none; }
+            .hero-text { max-width: 50% !important; padding-top: 40px !important; text-align: left !important; }
+            .hero-text h1 { font-size: 1.3rem !important; }
+            .hero-text p { 
+                font-size: 0.8rem !important; width: auto !important; margin: 10px 0 !important; 
+                background: rgba(0,0,0,0.5) !important; display: inline-block !important;
+                padding: 8px !important; border-radius: 5px !important;
+            }
+            .cta-btn { padding: 10px 20px !important; font-size: 0.8rem !important; }
+            .video-overlay-container { margin-top: 0 !important; padding-left: 0 !important; padding-right: 5% !important; gap: 15px !important; justify-content: flex-end !important; }
+            .small-shorts { width: 85px !important; height: 135px !important; transform: none !important; }
         }
-
-        .video-overlay-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .small-shorts { width: 110px; height: auto; border-radius: 10px; }
-    }
-
-    /* 3. Хоризонтален режим (Landscape) - Когато завъртиш телефона */
-    @media screen and (max-width: 930px) and (orientation: landscape) {
-        .hero {
-            display: flex !important;
-            flex-direction: row !important; /* Текст вляво, видео вдясно */
-            align-items: center !important;
-            justify-content: space-around !important;
-            height: 100vh !important;
-            padding: 0 5% !important;
-        }
-
-        .hero-text {
-            max-width: 45% !important;
-            text-align: left !important;
-        }
-
-        .hero-text h1 { font-size: 1.4rem !important; }
-
-        .hero-text p {
-            font-size: 0.85rem !important;
-            width: auto !important; 
-            margin: 10px 0 !important;
-            padding: 10px !important;
-            background: rgba(0, 0, 0, 0.5) !important;
-            display: inline-block !important;
-            border-radius: 8px !important;
-        }
-
-        .video-overlay-container {
-            display: flex !important;
-            gap: 15px !important;
-        }
-
-        .small-shorts {
-            width: 85px !important;
-            height: 130px !important;
-            object-fit: cover !important;
-            border-radius: 10px !important;
-        }
-    }
     </style>
 </head>
 <body>
@@ -190,11 +109,9 @@
     <div class="hero-wrapper">
         <header>
             <div class="logo"><img src="лого1.png" alt="Лого"></div>
-            
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
             </div>
-
             <nav id="mainNav">
                 <ul>
                     <li><a href="за мен.html">За мен</a></li>
@@ -204,7 +121,6 @@
                     <li><a href="FAQ.html">FAQ</a></li>
                 </ul>
             </nav>
-
             <div class="header-socials">
                 <a href="https://www.instagram.com/manolovfit" target="_blank" class="social-img-btn"><img src="инста.png" alt="Instagram"></a>
                 <a href="https://www.tiktok.com/@manolovfit" target="_blank" class="social-img-btn"><img src="тикток.png" alt="TikTok"></a>
@@ -213,14 +129,9 @@
 
         <section class="hero-text">
             <div class="quote-slider">
-                <div class="quote active"><h1>"Тренирай умно, живей <span class="underline-red">без болка</span> – <br> функционален фитнес за здрави стави"</h1>
-                </div>
-                <div class="quote">
-                    <h1>"Изгради силно и атлетично тяло <span class="underline-red"> с ефективни методи</span> – <br> за чиста мускулна маса"</h1>
-                </div>
-                <div class="quote">
-                    <h1>"Изгори излишните мазнини и  <span class="underline-red">влез във форма</span> с устойчиви, <br> здравословни навици"</h1>
-                </div>
+                <div class="quote active"><h1>"Тренирай умно, живей <span class="underline-red">без болка</span> – <br> функционален фитнес за здрави стави"</h1></div>
+                <div class="quote"><h1>"Изгради силно и атлетично тяло <span class="underline-red">с ефективни методи</span> – <br> за чиста мускулна маса"</h1></div>
+                <div class="quote"><h1>"Изгори излишните мазнини и <span class="underline-red">влез във форма</span> с устойчиви, <br> здравословни навици"</h1></div>
             </div>
             <p>Възстановяване и функционални тренировки при проблеми с опорно-двигателния апарат</p>
             <a href="контакти.html" class="cta-btn">Запази безплатна консултация ></a>
@@ -229,13 +140,13 @@
         <div class="video-overlay-container">
             <div class="small-shorts">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/-uaevbKy7Vk?autoplay=1&mute=1&loop=1&playlist=-uaevbKy7Vk&controls=0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/-uaevbKy7Vk?autoplay=1&mute=1&loop=1&playlist=-uaevbKy7Vk&controls=0"></iframe>
                 </div>
                 <span class="video-label">Leg Extension</span>
             </div>
             <div class="small-shorts">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/i6dOfMi93aw?autoplay=1&mute=1&loop=1&playlist=i6dOfMi93aw&controls=0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/i6dOfMi93aw?autoplay=1&mute=1&loop=1&playlist=i6dOfMi93aw&controls=0"></iframe>
                 </div>
                 <span class="video-label">Тренировка</span>
             </div>
@@ -243,13 +154,11 @@
     </div>
 
     <script>
-        // Функция за хамбургер менюто
         function toggleMenu() {
             const nav = document.getElementById('mainNav');
             nav.classList.toggle('active');
         }
 
-        // Слайдер за цитатите
         const quotes = document.querySelectorAll('.quote');
         let currentIndex = 0;
         function changeQuote() {
