@@ -12,21 +12,12 @@
     flex-direction: column;
     justify-content: center; /* Центрира съдържанието вертикално /* Паралакс ефект */
 ">
-<form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-
-    <input type="hidden" name="access_key" value="0f9f0fb4-78f7-49fb-8d6f-d4e4c76396aa">
-
-    <input type="checkbox" name="botcheck" style="display: none;">
-
-    <input type="text" name="Име" placeholder="Твоето име" required style="width: 100%; padding: 15px; background: #252525; border: 1px solid #333; border-radius: 8px; color: white; outline: none;">
-    
-    <input type="email" name="Имейл" placeholder="Твоят имейл" required style="width: 100%; padding: 15px; background: #252525; border: 1px solid #333; border-radius: 8px; color: white; outline: none;">
-    
-    <textarea name="Съобщение" rows="5" placeholder="Твоето съобщение..." required style="width: 100%; padding: 15px; background: #252525; border: 1px solid #333; border-radius: 8px; color: white; outline: none; resize: none;"></textarea>
-
-    <button type="submit" style="background: #e31e24; color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s;">
-        Изпрати запитване
-    </button>
+<form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="0f9f0fb4-78f7-49fb-8d6f-d4e4c76396aa">
+  <input type="text" name="name" required>
+  <input type="email" name="email" required>
+  <textarea name="message" required></textarea>
+  <button type="submit">Submit</button>
 </form>
     <style>
     /* Адаптивност за мобилни устройства (вертикално и хоризонтално) */
