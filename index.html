@@ -173,40 +173,39 @@
         align-self: flex-start !important;
     }
 
-  @media screen and (max-width: 930px) and (orientation: landscape) {
-    /* Уверете се, че родителската секция е релативна */
-    .hero, .your-main-section-class { 
-        position: relative !important;
-        overflow: hidden; /* Предотвратява излизането на елементи */
-        min-height: 400px; /* Дайте минимална височина за landscape */
+ @media screen and (max-width: 930px) and (orientation: landscape) {
+    /* 1. Задължително правим родителя релативен, за да не "бягат" видеата */
+    .hero { 
+        position: relative !important; 
+        min-height: 380px !important; /* Гарантираме, че секцията няма да се сплеска */
+        overflow: hidden; 
     }
 
     .video-overlay-container {
         position: absolute !important;
-        /* Вместо 100%, използвайте фиксирано разстояние от дъното или центъра */
-        top: 60% !important; 
-        right: 5% !important; /* По-добре да са вдясно, за да не пречат на текста */
+        /* Махаме процентите отгоре и ползваме фиксирано разстояние от дъното */
+        bottom: 15px !important; 
+        right: 20px !important;  
+        top: auto !important;
         left: auto !important;
         
         display: flex !important;
-        flex-direction: row !important;
-        gap: 10px !important;
-        z-index: 10 !important;
-        transform: translateY(-50%) !important;
+        flex-direction: row !important; /* Подреждаме ги едно до друго */
+        gap: 12px !important;
+        transform: none !important; /* Махаме транслацията, тя само обърква мобилните браузъри */
+        z-index: 100 !important;
     }
 
     .small-shorts {
-        width: 80px !important; /* Намалете ги още малко за малки екрани */
+        width: 85px !important; /* Малко по-малки, за да не закриват лицето на човека на заден план */
         height: auto !important;
-        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Добавяме малко сянка за дълбочина */
     }
-    
-    /* Корекция за текста, за да не се застъпва */
+
+    /* Преместваме текста малко по-вляво, за да не се блъска в картинките */
     .hero-text {
-        max-width: 50% !important;
-        margin-top: 0 !important;
-        position: relative;
-        top: 20px;
+        max-width: 45% !important;
+        margin-top: -20px !important;
     }
 }
     </style>
