@@ -117,12 +117,12 @@
             .hero-text p { font-size: 0.8rem !important; text-align: center; background-color: rgba(0, 0, 0, 0.2) !important;
     padding: 15px 25px !important; 
     
-    display: block !important;       /* Вече заема целия ред */
-    width: 100vw !important;         /* Заема 100% от широчината на екрана */
-    margin-left: calc(-50vw + 50%) !important; /* Трик за изпъване от край до край, ако е в контейнер */display: inline-block !important;
+   display: block !important; 
+    width: 100vw !important; 
+    margin-left: calc(-50vw + 50%) !important; 
     box-sizing: border-box !important;
-    
-    border-radius: 0 !important;     /* Обикновено изглежда по-добре без заобляне, когато е от край до край */
+    backdrop-filter: blur(4px);
+    border-radius: 0 !important;
     backdrop-filter: blur(4px); }
 
             .video-overlay-container { 
