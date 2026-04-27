@@ -14,45 +14,43 @@
 ">
 <style>
     /* Адаптивност за мобилни устройства (вертикално и хоризонтално) */
-    @media (max-width: 768px), (max-height: 600px) {
-        /* 1. Правим основната секция скролваема */
+    @media (max-width: 768px) {
         #contact {
-            padding: 40px 10px !important;
-            display: block !important; /* Позволява скрол на нисък екран */
-            overflow-y: auto !important;
-            background-attachment: scroll !important; /* Паралаксът не работи добре на телефон */
+            padding: 20px 0 !important; /* Премахваме страничните празни пространства */
+            display: block !important;
+            height: auto !important;
         }
 
-        /* 2. Премахваме черния слой, който блокира скрола */
-        #contact > div:first-child {
-            display: none !important; /* Премахва фиксацията, която спира скрола */
-        }
-
-        /* 3. Разпъваме основната кутия на целия екран */
+        /* Това е кутията със съдържанието */
         #contact > div:nth-child(2) {
             width: 100% !important;
             max-width: 100% !important;
             margin: 0 !important;
-            grid-template-columns: 1fr !important; /* Елементите застават един под друг */
-            gap: 30px !important;
-            padding: 20px 15px !important;
-            border-radius: 10px !important;
+            border-radius: 0 !important; /* Правим я без заобляне, за да запълни ъглите */
+            border-left: none !important;
+            border-right: none !important;
+            padding: 30px 20px !important;
+            grid-template-columns: 1fr !important;
+            display: flex !important;
+            flex-direction: column !important;
         }
 
-        /* 4. Намаляваме шрифтовете за телефон */
-        #contact h2 {
-            font-size: 1.8rem !important;
+        /* Правим формата и информацията да заемат 100% ширина вътре */
+        #contact > div:nth-child(2) > div {
+            width: 100% !important;
+        }
+
+        h2 {
+            font-size: 2rem !important;
             text-align: center;
         }
 
-        #contact p {
-            text-align: center;
-        }
-
-        /* 5. Улесняваме писането в полетата */
+        /* Оправяме полетата да са по-широки */
         input, textarea, button {
-            font-size: 16px !important; /* Важно за Safari на iPhone */
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
+    }
 
         /* Оптимизация специално за хоризонтален режим */
         @media (orientation: landscape) {
