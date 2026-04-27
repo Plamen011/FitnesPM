@@ -6,6 +6,14 @@
     <title>Functional Fitness - Персонални тренировки</title>
     <style>
         /* --- ОБЩИ СТИЛОВЕ --- */
+         <style>
+        /* --- ОБЩИ СТИЛОВЕ --- */
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000; color: white;
+            overflow-x: hidden;
+        }
         body, html {
             margin: 0; padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -142,84 +150,63 @@
 }
 
 /* 2. ХОРИЗОНТАЛЕН ЕКРАН (LANDSCAPE) */
-@media screen and (max-width: 930px) and (orientation: landscape) {
-    /* Общи настройки за хедъра */
-    header { 
-        padding: 5px 5% !important; 
-        height: auto !important; 
-    }
-    
-    .logo img { 
-        height: 30px !important; 
-    }
-
-    /* Главната секция - КЛЮЧОВО за позиционирането */
-    .hero { 
-        position: relative !important; 
-        min-height: 420px !important; /* Увеличено, за да има място за всичко */
-        height: 100vh !important;
-        overflow: hidden !important; 
-    }
-
-    /* Текстът вляво */
-    .hero-text {
+@media screen and (max-width: 1180px) and (orientation: landscape) {
+    /* Основен контейнер */
+    .hero {
         display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important; /* Центрира текста вертикално спрямо екрана */
-        position: absolute !important;
-        top: 50% !important;
-        left: 5% !important;
-        transform: translateY(-50%) !important;
+        flex-direction: row !important; /* Текст отляво, видеа отдясно */
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 5% !important;
+        height: 100vh !important;
+        min-height: 400px !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    /* Лявата част с текста */
+    .hero-text {
+        flex: 1 !important;
         max-width: 45% !important;
-        margin: 0 !important;
-        z-index: 10;
+        z-index: 10 !important;
+        text-align: left !important;
     }
 
-    .hero-text h1 { font-size: 1.5rem !important; line-height: 1.1 !important; margin-bottom: 7px !important; }
+    .hero-text h1 {
+        font-size: 1.4rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Специфична корекция за сивия текст (параграфа) */
     .hero-text p {
-        /* Рестартираме разпъването от край до край */
-        width: auto !important; 
-        margin-left: 0 !important; 
-        
-        /* Правим го компактен и елегантен */
-        max-width: 320px !important; 
-        background-color: rgba(0, 0, 0, 0.3) !important; /* По-дискретен фон */
+        width: auto !important; /* Махаме 100vw */
+        max-width: 350px !important; 
+        margin: 10px 0 !important; /* Махаме calc триковете */
+        font-size: 0.85rem !important;
+        background: rgba(0, 0, 0, 0.5) !important;
         padding: 10px 15px !important;
-        border-radius: 8px !important; /* Тук заоблянето изглежда по-добре */
-        text-align: left !important; /* В landscape текстът вляво стои по-добре */
-        
-        display: inline-block !important;
-
-    /* Бутонът под текста */
-    .cta-btn {
-        padding: 8px 18px !important;
-        font-size: 0.8rem !important;
-        align-self: flex-start !important;
-        margin-top: 10px !important;
+        border-radius: 8px !important;
+        display: inline-block !important; /* Важно, за да не заема целия ред */
     }
 
-    /* Контейнерът с видеата - ЗАКОВАН долу вдясно */
+    /* Дясната част с видеата */
     .video-overlay-container {
-        position: absolute !important;
-        bottom: 25px !important; /* Разстояние от долния край */
-        right: 5% !important;   /* Разстояние от десния край */
+        position: relative !important; /* Махаме absolute, за да не "плуват" */
+        display: flex !important;
+        gap: 15px !important;
+        flex: 1 !important;
+        justify-content: flex-end !important;
         top: auto !important;
         left: auto !important;
-        
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 15px !important;
-        transform: none !important; /* Махаме транслацията за пълна съвместимост */
-        z-index: 100 !important;
+        transform: none !important;
     }
 
     .small-shorts {
-        width: 90px !important; /* Фиксирана ширина */
-        height: 130px !important; /* Фиксирана височина за еднаквост */
+        width: 100px !important; 
+        height: 150px !important;
         object-fit: cover !important;
-        border-radius: 12px !important;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.4) !important;
-        border: 1px solid rgba(255,255,255,0.2) !important;
+        border-radius: 10px !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
     }
 }
     </style>
